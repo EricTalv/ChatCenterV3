@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6b2f57a3-d8ad-486f-ab3f-200fb72693b0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Frontend/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Frontend/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Frontend/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Frontend/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Frontend/pages/admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Frontend/pages/admin.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -200,12 +199,12 @@
       <option name="presentableId" value="Default" />
       <updated>1552466931257</updated>
       <workItem from="1552466932393" duration="1739000" />
-      <workItem from="1552478299765" duration="4346000" />
+      <workItem from="1552478299765" duration="4588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6085000" />
+    <option name="totallyTimeSpent" value="6327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="877" height="1047" extended-state="0" />
