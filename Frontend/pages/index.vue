@@ -23,6 +23,14 @@
                 </fieldset>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset class="et-Field">
+                    <legend class="et-Legend"><h1>POST TITLE</h1></legend>
+                    <p class="lead">POST DATA</p>
+                </fieldset>
+            </div>
+        </div>
     </div>
 </template>
 
