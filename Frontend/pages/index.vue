@@ -23,7 +23,6 @@
                 </fieldset>
             </div>
         </div>
-
     </div>
 </template>
 
