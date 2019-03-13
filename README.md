@@ -3,14 +3,14 @@ ChatCenter with feature-push platform
 
 # Architecture
 
+<pre>
 FRONTEND:
-```Nuxt.js``` 
+ + Vue
+ + Nuxt
+ + Axios
+ + Vuex
 
 BACKEND:
-```
-Laravel
-Axios
-```
-
-DATABASE:
-```MySql```
+ + Laravel
+ + MySql
+</pre>
