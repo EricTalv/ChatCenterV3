@@ -3,7 +3,8 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'spa',
-
+  env: {
+  },
   /*
   ** Headers of the page
   */
@@ -34,6 +35,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/api'
   ],
 
   /*
