@@ -18,16 +18,18 @@
                     <legend class="et-Legend"><h1>Data</h1></legend>
                     <p>Retrieved data:</p>
                     <ul>
-                        <li>{{ getData }}</li>
+                        <li></li>
                     </ul>
                 </fieldset>
             </div>
         </div>
+
+
         <div class="row">
             <div class="col-md-12">
-                <fieldset class="et-Field">
-                    <legend class="et-Legend"><h1>POST TITLE</h1></legend>
-                    <p class="lead">POST DATA</p>
+                <fieldset class="et-Field" v-for="content in Contents">
+                    <legend class="et-Legend"><h1>{{ content.title }}</h1></legend>
+                    <p class="lead">{{ content.body }}</p>
                 </fieldset>
             </div>
         </div>
@@ -38,11 +40,17 @@
 
     export default {
         mounted() {
-            this.getDataBack();
+        },
+        created() {
+            this.dispatchAction('retrieveData');
         },
         methods: {
             getDataBack() {
-                this.sendData('testOne');
+                this.dispatchAction('testOne');
+            },
+
+            getContentData() {
+                this.dispatchAction('retrieveData');
             }
         },
         computed: {
@@ -50,8 +58,12 @@
                 return this.$store.state.text;
             },
 
-            sendData() {
+            dispatchAction() {
                 return this.$store.dispatch;
+            },
+
+            Contents() {
+                return this.$store.state.contents;
             }
         }
     }
