@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="homestead@192.168.99.100">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.7">
+<dataSource name="fucked">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.14">
     <root id="1">
+      <ServerVersion>10.3.13</ServerVersion>
+      <Dbms>MARIADB</Dbms>
+      <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultCasing>exact</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="homestead">
@@ -1301,19 +1304,15 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="326" parent="2" name="contents">
-      <Engine>InnoDB</Engine>
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <table id="327" parent="2" name="migrations">
-      <Engine>InnoDB</Engine>
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <table id="328" parent="2" name="password_resets">
-      <Engine>InnoDB</Engine>
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <table id="329" parent="2" name="users">
-      <Engine>InnoDB</Engine>
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <column id="330" parent="326" name="id">
@@ -1393,6 +1392,7 @@
     </column>
     <index id="343" parent="328" name="password_resets_email_index">
       <ColNames>email</ColNames>
+      <Type>btree</Type>
     </index>
     <column id="344" parent="329" name="id">
       <Position>1</Position>
@@ -1442,6 +1442,7 @@
     <index id="352" parent="329" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
+      <Type>btree</Type>
     </index>
     <key id="353" parent="329" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
