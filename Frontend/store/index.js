@@ -26,13 +26,13 @@ export const mutations = {
     APPEND_NEW_DATA(state, value) {
         // Use map to push each value-item to the contents
         value.map(v => {
-            console.log(v);
             state.contents.push(v);
         });
         // After pushing is done set retrieving to false
         state.retrieving = false;
+        state.isLoading = false;
     },
-    // Our global Retrieval status
+    // Set our retrieval status
     SET_STATUS(state, value) {
         state.retrieving = value;
     }
@@ -55,12 +55,13 @@ export const actions = {
     },
 
     getNextPage(context) {
-        // Check if CurrentPage is not equal to the last page value
-        // Check if the data retrieval state is set to false
+        // Check if we aren't on the last page
+        // Check if if data is being recieved
         if (this.state.currentPage.last_page !== this.state.currentPage.current_page && !this.state.retrieving) {
             context.commit('SET_STATUS', true);
+            context.commit('SET_LOADING', true);
             // Add current Page variable to api
-            this.$api.get('/content-data?page=' + parseInt(this.state.currentPage.current_page + 1)).then(response => {
+            this.$api.get('/content-data?page=' + (this.state.currentPage.current_page + 1)).then(response => {
                 // Retrieve first Data Object
                 context.commit('SET_CURRENT_PAGE', response.data);
                 // Get data array from that object

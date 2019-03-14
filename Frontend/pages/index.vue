@@ -1,12 +1,12 @@
 <template>
     <div v-on:scroll="scroll(e)" class="container">
         <h1 class="text-center">Index</h1>
-        <post v-show="!$store.state.isLoading"
+        <post
               v-for="item in Contents"
               :content="item"
               :key="item.id"
         ></post>
-        <div v-show="$store.state.isLoading">loading ...</div>
+        <div class="et-Footer" v-show="$store.state.isLoading"><div class="loader"></div></div>
     </div>
 </template>
 
@@ -37,7 +37,6 @@
                 let clientCurrentHeight = event.pageY + window.innerHeight;
 
                 let percent = Math.round((clientCurrentHeight / clientMaxHeight) * 100);
-                console.log(percent);
 
                 if (percent >= 89 ) {
                     this.dispatchAction('getNextPage');
@@ -64,6 +63,23 @@
 
 <style scoped>
 
+    .et-Footer{
+
+    }
+    .loader {
+        margin: 5% auto;
+        border: 10px solid #f3f3f3; /* Light grey */
+        border-top: 10px solid grey; /* Blue */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 0.5s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 </style>
 
 
