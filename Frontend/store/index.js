@@ -1,23 +1,40 @@
 // noinspection SpellCheckingInspection
 export const state = () => ({
-    // Here will be our data holder
+    // Here will be our data holders
     contents: [],
     currentPage: {},
-    isLoading: true
+    isLoading: true,
+    retrieving: false,
 });
 
 
 export const mutations = {
 
     // Set where the content should be stored at
-    ContentRetrieval(state, value) {
+    CONTENT_RETRIEVAL(state, value) {
         state.contents = value;
     },
+    // Set loading state
     SET_LOADING(state, value) {
         state.isLoading = value;
     },
+    // Set our current page value
     SET_CURRENT_PAGE(state, value) {
         state.currentPage = value;
+    },
+    // Append retrieved data
+    APPEND_NEW_DATA(state, value) {
+        // Use map to push each value-item to the contents
+        value.map(v => {
+            console.log(v);
+            state.contents.push(v);
+        });
+        // After pushing is done set retrieving to false
+        state.retrieving = false;
+    },
+    // Our global Retrieval status
+    SET_STATUS(state, value) {
+        state.retrieving = value;
     }
 };
 
@@ -27,14 +44,31 @@ export const actions = {
     retrieveData(context) {
         // Send call to /content-data api and retrieve response
         this.$api.get('/content-data').then(response => {
-            context.commit('ContentRetrieval', response.data.data);
+            // Put our retrieve data(Response) to the content state
+            context.commit('CONTENT_RETRIEVAL', response.data.data);
+            // Load the current page object
             context.commit('SET_CURRENT_PAGE', response.data);
+            // Set loading state
             context.commit('SET_LOADING', false);
+        })
 
-        });
+    },
+
+    getNextPage(context) {
+        // Check if CurrentPage is not equal to the last page value
+        // Check if the data retrieval state is set to false
+        if (this.state.currentPage.last_page !== this.state.currentPage.current_page && !this.state.retriving) {
+            context.commit('SET_STATUS', true);
+            // Add current Page variable to api
+            this.$api.get('/content-data?page=' + parseInt(this.state.currentPage.current_page + 1)).then(response => {
+                // Retrieve first Data Object
+                context.commit('SET_CURRENT_PAGE', response.data);
+                // Get data array from that object
+                context.commit('APPEND_NEW_DATA', response.data.data);
+            })
+        }
+
     }
 };
 
-export const getters = {
-
-};
+export const getters = {};

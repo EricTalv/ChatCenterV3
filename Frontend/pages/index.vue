@@ -32,8 +32,20 @@
         },
         methods: {
             handleScroll(event) {
-                console.log(event.pageY + window.innerHeight);
-                console.log(this.$el.clientHeight);
+
+                let clientMaxHeight = this.$el.clientHeight;
+                let clientCurrentHeight = event.pageY + window.innerHeight;
+
+                let percent = Math.round((clientCurrentHeight / clientMaxHeight) * 100);
+                console.log(percent);
+
+                if (percent === 89 ) {
+                    this.dispatchAction('getNextPage');
+                }
+
+                /* console.log(percent);
+                 console.log(clientMaxHeight);
+                 console.log(clientCurrentHeight);*/
             }
         },
 
