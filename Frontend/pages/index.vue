@@ -1,13 +1,13 @@
 <template>
     <div class="container">
-        <post
+        <post v-show="!$store.state.isLoading"
         v-for="item in Contents"
         :content="item"
         :key="item.id"
         ></post>
+        <div v-show="$store.state.isLoading">loading ...</div>
     </div>
 </template>
-
 
 <script>
 

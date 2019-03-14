@@ -5,7 +5,7 @@
                 <legend class="et-Legend">
                     <h1>{{ content.title }}</h1>
                 </legend>
-                <p class="lead">{{ content.body }}</p>
+                <p class="et-text">{{ content.body }}</p>
             </fieldset>
         </div>
     </div>
@@ -14,12 +14,7 @@
 <script>
     export default {
         name: "post",
-        props: ['title', 'body' ,'content'],
-        data() {
-            return {
-
-            }
-        }
+        props: ['title', 'body' ,'content']
 
     }
 </script>
@@ -30,13 +25,20 @@
         border: 1px solid black;
         padding: 10px;
         margin: 0;
-        min-height: 250px;
     }
 
     .et-Field > legend {
         width: auto;
-        margin-top: 30px;
+        margin-top: 20px;
         padding: 5px;
+        border: 1px solid #000;
+        font-family: "Trebuchet MS", sans-serif;
+        font-weight: 900;
+        font-variant: small-caps;
+    }
+
+    .et-text {
+        font-family: "Consolas", sans-serif;
     }
 
 </style>
