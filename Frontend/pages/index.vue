@@ -39,13 +39,9 @@
                 let percent = Math.round((clientCurrentHeight / clientMaxHeight) * 100);
                 console.log(percent);
 
-                if (percent === 89 ) {
+                if (percent >= 89 ) {
                     this.dispatchAction('getNextPage');
                 }
-
-                /* console.log(percent);
-                 console.log(clientMaxHeight);
-                 console.log(clientCurrentHeight);*/
             }
         },
 

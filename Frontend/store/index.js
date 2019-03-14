@@ -57,7 +57,7 @@ export const actions = {
     getNextPage(context) {
         // Check if CurrentPage is not equal to the last page value
         // Check if the data retrieval state is set to false
-        if (this.state.currentPage.last_page !== this.state.currentPage.current_page && !this.state.retriving) {
+        if (this.state.currentPage.last_page !== this.state.currentPage.current_page && !this.state.retrieving) {
             context.commit('SET_STATUS', true);
             // Add current Page variable to api
             this.$api.get('/content-data?page=' + parseInt(this.state.currentPage.current_page + 1)).then(response => {
