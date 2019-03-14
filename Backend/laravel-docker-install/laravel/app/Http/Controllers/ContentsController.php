@@ -10,7 +10,7 @@ class ContentsController extends Controller
 {
     public function GetAllContents()
     {
-        $contents = Content::get();
+        $contents = Content::paginate(15);
 
         return $contents;
     }

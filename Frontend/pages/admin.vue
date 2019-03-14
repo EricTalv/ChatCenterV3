@@ -1,28 +1,6 @@
 <template>
     <section class="container">
-        <div class="row">
-            <div class="col-md">
-                <fieldset class="et-Field">
-                    <legend class="et-Legend"><h1>Admin Page</h1></legend>
-                    <p class="lead">This is the description for the Admin page.</p>
-                </fieldset>
-            </div>
-            <div class="col-md">
-                <fieldset class="et-Field">
-                    <legend class="et-Legend"><h1>Control</h1></legend>
-                    <a href="#" class="w-100 btn disabled">Yikes</a>
-                </fieldset>
-            </div>
-            <div class="col-md">
-                <fieldset class="et-Field">
-                    <legend class="et-Legend"><h1>Data</h1></legend>
-                    <p>Retrieved data:</p>
-                    <ul>
-
-                    </ul>
-                </fieldset>
-            </div>
-        </div>
+    <h1 class="text-center">Admin</h1>
     </section>
 </template>
 
