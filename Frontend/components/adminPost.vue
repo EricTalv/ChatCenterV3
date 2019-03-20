@@ -1,10 +1,15 @@
 <template>
     <div class="row">
         <div class="col-md-12">
-            <fieldset class="et-Field">
+            <fieldset class="et-adminField">
                 <legend class="et-Legend">
-                    <h1>{{ content.title }}</h1>
+                    <h1>{{ content.id}}| {{ content.title }}</h1>
                 </legend>
+                <div class="yikes">
+                    <button>Hello</button>
+                </div>
+                <a>Hover over me!</a>
+                <div class="test">Stuff shown on hover</div>
                 <p class="et-text">{{ content.body }}</p>
             </fieldset>
         </div>
@@ -19,31 +24,5 @@
 </script>
 
 <style scoped>
-
-    .et-Field {
-        border: 1px solid black;
-        padding: 10px;
-        margin: 0;
-    }
-
-    .et-Field > legend {
-        width: auto;
-        margin-top: 1em;
-        padding: 5px;
-        border: 1px solid #000;
-        font-family: "Trebuchet MS", sans-serif;
-        font-weight: 900;
-        font-variant: small-caps;
-    }
-
-    .et-text {
-        font-family: "Consolas", sans-serif;
-    }
-
-    @media screen and (-webkit-min-device-pixel-ratio:0) {
-        .et-Legend {
-            margin-top: 20px;
-        }
-    }
 
 </style>
