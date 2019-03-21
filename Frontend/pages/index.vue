@@ -1,49 +1,34 @@
 <template>
-    <div v-scroll="handleScroll" class="container">
-        <h1 class="text-center">Index</h1>
-        <post
-                v-for="item in Contents"
-                :content="item"
-        ></post>
+    <div class="container">
+        <inf_scroll>
+            <h1 class="text-center">Index</h1>
+            <post
+                    v-for="item in Contents"
+                    :content="item"
+            ></post>
 
-        <div class="et-Footer" v-show="$store.state.isLoading">
-            <div class="loader"></div>
-        </div>
+            <div class="et-Footer" v-show="$store.state.isLoading">
+                <div class="loader"></div>
+            </div>
+        </inf_scroll>
     </div>
 </template>
 
 <script>
 
-    import post from '~/components/post.vue';
+    import post from '../components/post.vue';
+    import inf_scroll from '../components/infScroll.vue';
 
     export default {
 
         // Retrieve components
         name: "index",
-        components: {
-            post
-        },
+        components: {post, inf_scroll},
 
         // After all data has been received and rendered
         created() {
             // Perform dispatch to retrieveData from Store
             this.$store.dispatch('retrieveData');
-        },
-
-        methods: {
-            handleScroll(event) {
-                // Define variables
-                let clientMaxHeight = this.$el.clientHeight; // Get full height of the site
-                let clientCurrentHeight = event.pageY + window.innerHeight; // See clients current web-height
-
-                // Calculations
-                let percent = Math.round((clientCurrentHeight / clientMaxHeight) * 100); // Calculate the percentage of the height number
-
-                // Checks
-                if (percent >= 89) { // Check when we see 89% of the page
-                    this.$store.dispatch('getNextPage'); // run dispatch
-                }
-            }
         },
 
         // Computes any changes
@@ -55,7 +40,6 @@
         }
     }
 </script>
-
 
 <style scoped>
 

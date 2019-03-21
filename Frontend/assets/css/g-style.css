@@ -4,31 +4,16 @@
     margin: 0;
 }
 
-.et-adminField > .yikes {
-    display: none;
-}
-
-.et-adminField:hover + .yikes{
-    display: block;
-}
-
-.test {
-    display: none;
-}
-
-a:hover + div {
-    display: block;
-}
-
-.et-Field, .et-adminField > legend {
+legend {
     width: auto;
     margin-top: 1em;
-    padding: 5px;
+    padding: 0 20px;
     border: 1px solid #000;
     font-family: "Trebuchet MS", sans-serif;
     font-weight: 900;
     font-variant: small-caps;
 }
+
 
 .et-text {
     font-family: "Consolas", sans-serif;
