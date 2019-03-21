@@ -5,11 +5,11 @@ export const state = () => ({
     currentPage: {},
     isLoading: true,
     retrieving: false,
+    currentlyOpenedPost: {},
 });
 
 
 export const mutations = {
-
     // Set where the content should be stored at
     CONTENT_RETRIEVAL(state, value) {
         state.contents = value;
@@ -35,16 +35,20 @@ export const mutations = {
     // Set our retrieval status
     SET_STATUS(state, value) {
         state.retrieving = value;
+    },
+    // Send Modal data
+    SEND_MODAL_DATA(state, value) {
+        state.currentlyOpenedPost = value;
     }
+
 };
 
 export const actions = {
-
-    // Define The Action
+    // Get our first batch of data
     retrieveData(context) {
         // Send call to /content-data api and retrieve response
         this.$api.get('/content-data').then(response => {
-            // Put our retrieve data(Response) to the content state
+            // Store our retrieve data(Response) to the content state
             context.commit('CONTENT_RETRIEVAL', response.data.data);
             // Load the current page object
             context.commit('SET_CURRENT_PAGE', response.data);
@@ -54,9 +58,10 @@ export const actions = {
 
     },
 
+    // Get Another Page batch of data
     getNextPage(context) {
         // Check if we aren't on the last page
-        // Check if if data is being recieved
+        // Check if data is being received
         if (this.state.currentPage.last_page !== this.state.currentPage.current_page && !this.state.retrieving) {
             context.commit('SET_STATUS', true);
             context.commit('SET_LOADING', true);
@@ -68,7 +73,11 @@ export const actions = {
                 context.commit('APPEND_NEW_DATA', response.data.data);
             })
         }
+    },
 
+    // Show Current POST Modal Data
+    modalData(context) {
+        context.commit('SEND_MODAL_DATA')
     }
 };
 

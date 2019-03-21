@@ -16,8 +16,8 @@
 
 <script>
 
-    import post from '../components/post.vue';
-    import inf_scroll from '../components/infScroll.vue';
+    import post from '../components/post';
+    import inf_scroll from '../components/infScroll';
 
     export default {
 

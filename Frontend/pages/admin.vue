@@ -2,6 +2,7 @@
     <div class="container">
         <inf_scroll>
             <h1 class="text-center">Admin</h1>
+
             <admin_post
                     v-for="item in Contents"
                     :content="item"
@@ -12,6 +13,7 @@
                 <div class="loader"></div>
             </div>
         </inf_scroll>
+
     </div>
 </template>
 
@@ -19,7 +21,6 @@
 
     import admin_post from "../components/adminPost";
     import inf_scroll from "../components/infScroll";
-
 
     export default {
         name: "admin",
@@ -30,8 +31,15 @@
         },
 
         computed: {
+
             Contents() {
+                // Return any new data from the Content State
                 return this.$store.state.contents;
+            },
+
+            ModalData () {
+                // Send Currently opened Post data to CurrentlyOpenPost state
+
             }
         }
 
