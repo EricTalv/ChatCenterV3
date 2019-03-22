@@ -28,7 +28,9 @@ module.exports = {
     ** Global CSS
     */
     css: [
-        '@/assets/css/g-style.css'
+        '@/assets/css/g-style.css',
+        '@/node_modules/medium-editor/dist/css/medium-editor.css',
+        // '@/node_modules/vue2-medium-editor/src/themes/default.css',
     ],
 
     /*
@@ -37,7 +39,7 @@ module.exports = {
     plugins: [
         '~/plugins/api',
         '~/plugins/infScroll',
-
+        {src: '~/plugins/mediumEditor', ssr: false},
     ],
 
     /*

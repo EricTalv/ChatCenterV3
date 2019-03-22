@@ -13,7 +13,6 @@ Vue.directive('scroll', {
             }
         }
         window.addEventListener('scroll', f);
-
     }
 });
 

@@ -5,6 +5,7 @@
             <post
                     v-for="item in Contents"
                     :content="item"
+                    :key="item.id"
             ></post>
 
             <div class="et-Footer" v-show="$store.state.isLoading">

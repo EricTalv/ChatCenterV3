@@ -14,29 +14,46 @@
             </fieldset>
         </div>
 
-        <modal v-if="showModal" :content="content"
+        <modal v-if="showModal"
+               :content="content"
                @close="showModal = !showModal"
         >
-            <div class="modal-header">
-                {{content.title}}
+            <modal_interface></modal_interface>
+            <!--<div class="modal-header">
                 <slot name="header">
+                    <h1>{{ content.title }}</h1>
                 </slot>
             </div>
 
             <div class="modal-body">
-                <textarea class="text-body">{{content.body}}</textarea>
                 <slot name="body">
+                    <div>{{ content.body }}</div>
                 </slot>
             </div>
 
             <div class="modal-footer">
                 <slot name="footer">
-
                     <button class="modal-default-button" @click="showModal=!showModal">
-                        OK
+                        Cancel
+                    </button>
+                    <button class="modal-default-button" @click="showModal=!showModal">
+                        Save
+                    </button>
+                </slot>
+            </div>-->
+
+
+            <div class="modal-footer">
+                <slot name="footer">
+                    <button class="modal-default-button" @click="showModal=!showModal">
+                        Cancel
+                    </button>
+                    <button class="modal-default-button" @click="showModal=!showModal">
+                        Save
                     </button>
                 </slot>
             </div>
+
         </modal>
     </div>
 </template>
@@ -44,13 +61,14 @@
 <script>
 
     import modal from "../components/modal";
+    import modal_interface from "../components/modalInterface";
 
     export default {
         name: "admin_post",
         props: ['content'],
-        components: {modal},
+        components: {modal, modal_interface},
 
-        data () {
+        data() {
             return {
                 showModal: false
             }
@@ -58,6 +76,8 @@
     }
 </script>
 
-<style scoped>
-
+<style>
+ .medium-editor-toolbar {
+     z-index: 9999 !important;
+ }
 </style>
