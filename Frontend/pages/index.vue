@@ -1,6 +1,13 @@
 <template>
     <div class="container">
         <inf_scroll>
+            <v-alert
+                    :value="true"
+                    type="success"
+            >
+                This is a success alert.
+            </v-alert>
+
             <h1 class="text-center">Index</h1>
             <post
                     v-for="item in Contents"
