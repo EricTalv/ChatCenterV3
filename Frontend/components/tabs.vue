@@ -7,12 +7,26 @@
                 centered
                 grow
         >
+            <v-tab>Posts</v-tab>
+            <v-tab>Chats</v-tab>
 
-            <v-tab class="et-Tab" v-for="tab in tabs">
-                {{ tab }}
-            </v-tab>
 
-            <slot></slot>
+
+            <v-tab-item>
+                <v-card flat>
+                    <v-card-text>
+                       yikes
+                    </v-card-text>
+                </v-card>
+            </v-tab-item>
+
+            <v-tab-item>
+                <v-card flat>
+                    <v-card-text>
+                        items for a
+                    </v-card-text>
+                </v-card>
+            </v-tab-item>
 
         </v-tabs>
 
@@ -21,9 +35,10 @@
 
 <script>
 
+
+
     export default {
         name: "tabs",
-        props: ['tabs'],
         data(){
             return{
                 isActive:this.active,

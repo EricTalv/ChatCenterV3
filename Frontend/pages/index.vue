@@ -1,13 +1,12 @@
 <template>
     <div class="container">
         <tabs
-              :tabs="tabs"
-        >
-        </tabs>
+
+        ></tabs>
 
 
         <inf_scroll>
-            <h1 class="text-center">Index</h1>
+            <h1 class="text-center">hello</h1>
             <post
                     v-for="item in Contents"
                     :content="item"
@@ -26,18 +25,30 @@
     import post from '../components/post';
     import inf_scroll from '../components/infScroll';
     import tabs from '../components/tabs';
-    import tab_interface from '../components/tabItem';
+    import tab_item from '../components/tabItem';
 
     export default {
 
         // Retrieve components
         name: "index",
-        components: {post, inf_scroll, tabs, tab_interface},
+        components: {post, inf_scroll, tabs, tab_item},
 
         data() {
             return {
-                tabs: ['posts', 'chats']
+                tabs: [
+                    {
+                        title: 'posts',
+                        content: {
+                            newSisu: 'tere'
+                        }
 
+                    },
+                    {
+                        title: 'chats',
+                        content: {
+                            newSisu: 'fdsg'
+                        }
+                    }]
             }
         },
 
