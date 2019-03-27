@@ -30,7 +30,6 @@ module.exports = {
     css: [
         '@/assets/css/g-style.css',
         '@/node_modules/medium-editor/dist/css/medium-editor.css',
-        'vuetify/dist/vuetify.min.css',
         // '@/node_modules/vue2-medium-editor/src/themes/default.css',
     ],
 
