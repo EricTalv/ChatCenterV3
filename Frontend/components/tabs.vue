@@ -1,29 +1,18 @@
 <template>
     <div>
         <v-tabs class="et-Tabs-container"
-                v-model="active"
+                v-model="isActive"
                 color="dark"
                 slider-color="black"
                 centered
                 grow
         >
-            <v-tab class="et-Tab">
-                Cool item 1
-            </v-tab>
-            <v-tab class="et-Tab">
-                Cool item 2
+
+            <v-tab class="et-Tab" v-for="tab in tabs">
+                {{ tab }}
             </v-tab>
 
-            <v-tab-item>
-                <v-card flat>
-                    <v-card-text>For item 1</v-card-text>
-                </v-card>
-            </v-tab-item>
-            <v-tab-item>
-                <v-card flat>
-                    <v-card-text>For item 2</v-card-text>
-                </v-card>
-            </v-tab-item>
+            <slot></slot>
 
         </v-tabs>
 
@@ -31,8 +20,16 @@
 </template>
 
 <script>
+
     export default {
-        name: "tab",
+        name: "tabs",
+        props: ['tabs'],
+        data(){
+            return{
+                isActive:this.active,
+            }
+        }
+
     }
 </script>
 

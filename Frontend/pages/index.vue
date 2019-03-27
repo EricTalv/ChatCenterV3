@@ -1,6 +1,11 @@
 <template>
     <div class="container">
-        <tabs></tabs>
+        <tabs
+              :tabs="tabs"
+        >
+        </tabs>
+
+
         <inf_scroll>
             <h1 class="text-center">Index</h1>
             <post
@@ -21,12 +26,20 @@
     import post from '../components/post';
     import inf_scroll from '../components/infScroll';
     import tabs from '../components/tabs';
+    import tab_interface from '../components/tabItem';
 
     export default {
 
         // Retrieve components
         name: "index",
-        components: {post, inf_scroll, tabs},
+        components: {post, inf_scroll, tabs, tab_interface},
+
+        data() {
+            return {
+                tabs: ['posts', 'chats']
+
+            }
+        },
 
         // After all data has been received and rendered
         created() {
