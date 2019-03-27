@@ -2,26 +2,35 @@
     <div>
         <v-tabs
                 v-model="active"
-                color="cyan"
+                color="dark"
                 dark
-                slider-color="yellow"
+                slider-color="red"
         >
-            <v-tab
-                    v-for="n in 3"
-                    :key="n"
-                    ripple
-            >
-                Item {{ n }}
+            <v-tab>
+                Cool item 1
             </v-tab>
-            <v-tab-item
-                    v-for="n in 3"
-                    :key="n"
-            >
-                <div>
-                    <slot>{{ text }}</slot>
-                </div>
-            </v-tab-item>
+            <v-tab>
+                Cool item 2
+            </v-tab>
+            <v-tab>
+                Cool item 3
+            </v-tab>
 
+            <v-tab-item>
+                <v-card flat>
+                    <v-card-text>For item 1</v-card-text>
+                </v-card>
+            </v-tab-item>
+            <v-tab-item>
+                <v-card flat>
+                    <v-card-text>For item 2</v-card-text>
+                </v-card>
+            </v-tab-item>
+            <v-tab-item>
+                <v-card flat>
+                    <v-card-text>For item 3</v-card-text>
+                </v-card>
+            </v-tab-item>
         </v-tabs>
 
         <div class="text-xs-center mt-3">
@@ -36,7 +45,6 @@
         data() {
             return {
                 active: null,
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
             }
         },
         methods: {
