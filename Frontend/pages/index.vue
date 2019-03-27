@@ -1,13 +1,7 @@
 <template>
     <div class="container">
+        <tabs></tabs>
         <inf_scroll>
-            <v-alert
-                    :value="true"
-                    type="success"
-            >
-                This is a success alert.
-            </v-alert>
-
             <h1 class="text-center">Index</h1>
             <post
                     v-for="item in Contents"
@@ -26,12 +20,13 @@
 
     import post from '../components/post';
     import inf_scroll from '../components/infScroll';
+    import tabs from '../components/tabs';
 
     export default {
 
         // Retrieve components
         name: "index",
-        components: {post, inf_scroll},
+        components: {post, inf_scroll, tabs},
 
         // After all data has been received and rendered
         created() {

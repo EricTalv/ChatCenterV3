@@ -5,7 +5,7 @@
                 <legend class="et-Legend">
                     <h1>{{ content.title }}</h1>
                 </legend>
-                <p class="et-text">{{ content.body }}</p>
+                <p class="et-Text">{{ content.body }}</p>
             </fieldset>
         </div>
     </div>
