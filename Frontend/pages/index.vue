@@ -34,24 +34,18 @@
                                 <h1>Open World Chat</h1>
                             </legend>
                             <p class="et-Text">This will be an open world Chat, without excemptions</p>
-
-
-
-                            <div class="row">
-
-                                <v-flex xs8>
+                            <v-layout>
+                                <v-flex xs12>
                                     <v-text-field
-                                            label="Outline"
-                                            placeholder="Placeholder"
+                                            label="Insert a Nickname"
                                             outline
                                     ></v-text-field>
                                 </v-flex>
 
-                                <div class="text-xs-right mt-3">
-                                    <v-btn flat color >Join Chat</v-btn>
+                                <div>
+                                    <v-btn flat large outline >Join Chat</v-btn>
                                 </div>
-                            </div>
-
+                            </v-layout>
                         </fieldset>
                     </div>
                 </div>
