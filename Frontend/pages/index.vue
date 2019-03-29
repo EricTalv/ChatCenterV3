@@ -31,9 +31,27 @@
                     <div class="col-md-12">
                         <fieldset class="et-Field">
                             <legend class="et-Legend">
-                                <h1>This is a custom post! </h1>
+                                <h1>Open World Chat</h1>
                             </legend>
-                            <p class="et-Text">Not taken from the database</p>
+                            <p class="et-Text">This will be an open world Chat, without excemptions</p>
+
+
+
+                            <div class="row">
+
+                                <v-flex xs8>
+                                    <v-text-field
+                                            label="Outline"
+                                            placeholder="Placeholder"
+                                            outline
+                                    ></v-text-field>
+                                </v-flex>
+
+                                <div class="text-xs-right mt-3">
+                                    <v-btn flat color >Join Chat</v-btn>
+                                </div>
+                            </div>
+
                         </fieldset>
                     </div>
                 </div>
