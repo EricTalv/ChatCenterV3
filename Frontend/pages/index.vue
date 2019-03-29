@@ -7,8 +7,12 @@
                 centered
                 grow
         >
-            <v-tab class="et-Tab">POSTS</v-tab>
-            <v-tab class="et-Tab">CHATS</v-tab>
+            <v-toolbar>
+                <v-spacer></v-spacer>
+                <v-spacer></v-spacer>
+                <v-tab class="et-Tab">POSTS</v-tab>
+                <v-tab class="et-Tab">CHATS</v-tab>
+            </v-toolbar>
 
             <v-tab-item>
                 <inf_scroll>
