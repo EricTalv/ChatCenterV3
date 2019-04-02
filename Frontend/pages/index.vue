@@ -1,27 +1,67 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div class="container">
-        <v-tabs class="et-Tabs-container"
-                v-model="isActive"
+
+        <v-toolbar
+                color="cyan"
+                dark
+                tabs
+        >
+            <v-toolbar-side-icon></v-toolbar-side-icon>
+
+            <v-toolbar-title>P</v-toolbar-title>
+
+            <v-spacer></v-spacer>
+
+            <v-btn icon>
+                <v-icon>s</v-icon>
+            </v-btn>
+
+            <v-btn icon>
+                <v-icon>m</v-icon>
+            </v-btn>
+
+            <template v-slot:extension>
+                <v-tabs
+                        centered
+                        color="cyan"
+                        slider-color="yellow"
+                >
+                    <v-tab >
+                        Item A
+                    </v-tab>
+                    <v-tab >
+                        Item b
+                    </v-tab>
+                </v-tabs>
+            </template>
+        </v-toolbar>
+
+        <v-tabs-items >
+            <v-tab-item >
+                <v-card flat>
+                    <v-card-text>item A</v-card-text>
+                </v-card>
+            </v-tab-item>
+
+            <v-tab-item >
+                <v-card flat>
+                    <v-card-text>item b</v-card-text>
+                </v-card>
+            </v-tab-item>
+        </v-tabs-items>
+
+
+
+    <!--    <v-tabs class="et-Tabs-container"
                 color="dark"
                 slider-color="black"
                 centered
                 grow
         >
-            <!--<v-tab class="et-Tab">POSTS</v-tab>-->
-            <!--<v-tab class="et-Tab">CHATS</v-tab>-->
+            &lt;!&ndash;<v-tab class="et-Tab">POSTS</v-tab>&ndash;&gt;
+            &lt;!&ndash;<v-tab class="et-Tab">CHATS</v-tab>&ndash;&gt;
 
-            <v-toolbar extended>
 
-                <v-toolbar-side-icon>logan</v-toolbar-side-icon>
-
-                <template v-slot:extension>
-                    <v-toolbar-title class="white--text">Title</v-toolbar-title>
-                </template>
-
-                <v-toolbar-items>
-                    <v-btn flat>item</v-btn>
-                </v-toolbar-items>
-            </v-toolbar>
 
             <v-tab-item>
                 <inf_scroll>
@@ -64,7 +104,7 @@
                 </div>
             </v-tab-item>
 
-        </v-tabs>
+        </v-tabs>-->
     </div>
 </template>
 
