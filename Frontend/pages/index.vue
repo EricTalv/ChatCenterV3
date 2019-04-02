@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div class="container">
         <v-tabs class="et-Tabs-container"
                 v-model="isActive"
@@ -7,11 +7,20 @@
                 centered
                 grow
         >
-            <v-toolbar>
-                <v-spacer></v-spacer>
-                <v-spacer></v-spacer>
-                <v-tab class="et-Tab">POSTS</v-tab>
-                <v-tab class="et-Tab">CHATS</v-tab>
+            <!--<v-tab class="et-Tab">POSTS</v-tab>-->
+            <!--<v-tab class="et-Tab">CHATS</v-tab>-->
+
+            <v-toolbar extended>
+
+                <v-toolbar-side-icon>logan</v-toolbar-side-icon>
+
+                <template v-slot:extension>
+                    <v-toolbar-title class="white--text">Title</v-toolbar-title>
+                </template>
+
+                <v-toolbar-items>
+                    <v-btn flat>item</v-btn>
+                </v-toolbar-items>
             </v-toolbar>
 
             <v-tab-item>
