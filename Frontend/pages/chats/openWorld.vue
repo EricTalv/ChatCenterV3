@@ -9,7 +9,14 @@
             <v-flex grow pa-1>
                 <v-card>
                     <v-card-text>Messages</v-card-text>
+
                 </v-card>
+                <v-flex xs6>
+                    <v-text-field outline></v-text-field>
+                </v-flex>
+                <v-flex xs6>
+                    <v-btn outline>Send</v-btn>
+                </v-flex>
             </v-flex>
             <v-flex shrink pa-1>
                 <v-card>
