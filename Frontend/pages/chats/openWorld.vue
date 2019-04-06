@@ -4,18 +4,13 @@
             <v-flex>
                 ONLINE USERS
             </v-flex>
-        </v-layout>
-        <v-layout>
             <v-flex>
                 MESSAGES
             </v-flex>
-        </v-layout>
-        <v-layout>
             <v-flex>
                 HISTORY
             </v-flex>
         </v-layout>
-
     </v-container>
 </template>
 
