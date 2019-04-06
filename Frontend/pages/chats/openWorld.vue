@@ -1,13 +1,19 @@
 <template>
     <v-container fluid>
         <v-layout>
-            ONLINE USERS
+            <v-flex>
+                ONLINE USERS
+            </v-flex>
         </v-layout>
         <v-layout>
-            MESSAGES
+            <v-flex>
+                MESSAGES
+            </v-flex>
         </v-layout>
         <v-layout>
-            HISTORY
+            <v-flex>
+                HISTORY
+            </v-flex>
         </v-layout>
 
     </v-container>
