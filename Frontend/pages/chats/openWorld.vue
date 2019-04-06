@@ -1,10 +1,7 @@
 <template>
     <v-container >
         <v-layout row>
-            <v-flex
-                    shrink
-                    pa-1
-            >
+            <v-flex shrink pa-1>
                 <v-card>
                     <v-card-text>Online Users</v-card-text>
                 </v-card>
