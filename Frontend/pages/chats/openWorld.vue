@@ -1,7 +1,7 @@
 <template>
     <v-container fluid>
         <v-layout>
-            <v-flex>
+            <v-flex >
                 ONLINE USERS
             </v-flex>
             <v-flex>
