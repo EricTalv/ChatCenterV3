@@ -6,10 +6,11 @@
 
                 <v-list>
                     <v-list-title>
-                        Online Users:
+                        <h3>Online Users:</h3>
                     </v-list-title>
 
                     <v-list-tile>
+                        <v-icon>add</v-icon>
                         <v-list-tile-content>
                             James
                         </v-list-tile-content>
