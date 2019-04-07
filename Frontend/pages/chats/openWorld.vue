@@ -1,12 +1,13 @@
 <template>
     <v-container fluid>
         <v-layout>
-            <v-flex shrink>
+            <v-flex xs3>
                 <v-card min-width="250px">
                     <v-list>
                         <v-subheader>
                             <h3>Online</h3>
                         </v-subheader>
+                        <v-divider></v-divider>
                         <v-list-tile>
                             <v-icon>keyboard_arrow_right</v-icon>
                             <v-list-tile-content>
@@ -22,19 +23,28 @@
                     </v-list>
                 </v-card>
             </v-flex>
-            <v-flex grow>
+            <v-flex xs6>
                 <v-card>
-                    <v-card-text>
-                        MESSAGES
-                    </v-card-text>
+                    <v-subheader>
+                        <h3>Messages</h3>
+                    </v-subheader>
+                    <v-divider></v-divider>
+                    <v-card-title>
+                        <h4 headline>James</h4>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti enim laborum magnam minus molestias natus necessitatibus nihil quod sit tempore? Aut, fugiat, sapiente. Aliquid atque excepturi laboriosam maiores quos similique!
+                        </div>
+                    </v-card-title>
+
                 </v-card>
             </v-flex>
-            <v-flex shrink>
+            <v-flex xs3>
                 <v-card min-width="250px">
                     <v-list>
                         <v-subheader>
                             <h3>History</h3>
                         </v-subheader>
+                        <v-divider></v-divider>
                         <v-list-tile>
                             <v-list-tile-content>
                                 <v-list-tile-title>
