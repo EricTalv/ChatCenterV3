@@ -35,8 +35,6 @@
                             <span ma-5>Hello Dave!</span>
                         </div>
                     </v-card-title>
-                    <v-divider inset></v-divider>
-
                     <v-card-title primary-title>
                         <div>
                             <div>
