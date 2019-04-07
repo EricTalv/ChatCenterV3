@@ -32,7 +32,7 @@
                     <v-card-title primary-title>
                         <div>
                             <div><b>James</b></div>
-                            <span ma-5>Hello Dave!</span>
+                            <span>Hello Dave!</span>
                         </div>
                     </v-card-title>
                     <v-card-title primary-title>
@@ -40,13 +40,13 @@
                             <div>
                                 <b>Dave</b>
                             </div>
-                            <span ma-5>Hello James.</span>
+                            <span>Hello James.</span>
                         </div>
                     </v-card-title>
                     <v-card-title primary-title>
                         <div>
                             <div><b>Alex</b></div>
-                            <span ma-5>Hello! This is a long big text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, mollitia? I Quit</span>
+                            <span>Hello! This is a long big text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, mollitia? I Quit</span>
                         </div>
                     </v-card-title>
                 </v-card>
