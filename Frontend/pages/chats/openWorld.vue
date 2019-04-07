@@ -50,7 +50,13 @@
                         </div>
                     </v-card-title>
                 </v-card>
-
+                <v-flex>
+                    <v-text-field
+                            label="Message"
+                            single-line
+                            outline
+                    ></v-text-field>
+                </v-flex>
             </v-flex>
             <v-flex xs3>
                 <v-card min-width="250px">
