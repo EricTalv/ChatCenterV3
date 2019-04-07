@@ -3,9 +3,31 @@
         <v-layout>
             <v-flex>
                 <v-card>
-                    <v-card-text>
-                        ONLINE USERS
-                    </v-card-text>
+
+                <v-list>
+                    <v-list-title>
+                        Online Users:
+                    </v-list-title>
+
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            James
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            Dave
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            Alex
+                        </v-list-tile-content>
+                    </v-list-tile>
+
+
+                </v-list>
+
                 </v-card>
             </v-flex>
             <v-flex>
