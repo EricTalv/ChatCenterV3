@@ -23,20 +23,36 @@
                     </v-list>
                 </v-card>
             </v-flex>
-            <v-flex xs6>
-                <v-card>
+            <v-flex xs6 mx-2>
+                <v-card raised tile>
                     <v-subheader>
                         <h3>Messages</h3>
                     </v-subheader>
                     <v-divider></v-divider>
-                    <v-card-title>
-                        <h4 headline>James</h4>
+                    <v-card-title primary-title>
                         <div>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti enim laborum magnam minus molestias natus necessitatibus nihil quod sit tempore? Aut, fugiat, sapiente. Aliquid atque excepturi laboriosam maiores quos similique!
+                            <div><b>James</b></div>
+                            <span ma-5>Hello Dave!</span>
                         </div>
                     </v-card-title>
+                    <v-divider inset></v-divider>
 
+                    <v-card-title primary-title>
+                        <div>
+                            <div>
+                                <b>Dave</b>
+                            </div>
+                            <span ma-5>Hello James.</span>
+                        </div>
+                    </v-card-title>
+                    <v-card-title primary-title>
+                        <div>
+                            <div><b>Alex</b></div>
+                            <span ma-5>Hello! This is a long big text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, mollitia? I Quit</span>
+                        </div>
+                    </v-card-title>
                 </v-card>
+
             </v-flex>
             <v-flex xs3>
                 <v-card min-width="250px">
