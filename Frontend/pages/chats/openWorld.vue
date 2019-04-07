@@ -11,14 +11,14 @@
             <v-flex>
                 <v-card>
                     <v-card-text>
-                        ONLINE USERS
+                        MESSAGES
                     </v-card-text>
                 </v-card>
             </v-flex>
             <v-flex>
                 <v-card>
                     <v-card-text>
-                        ONLINE USERS
+                        HISTORY
                     </v-card-text>
                 </v-card>
             </v-flex>
