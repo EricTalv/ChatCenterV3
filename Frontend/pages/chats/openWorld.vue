@@ -2,12 +2,12 @@
     <v-container fluid>
         <v-layout>
             <v-flex shrink>
-                <v-card>
+                <v-card min-width="250px">
                     <v-list>
                         <v-subheader>
-                            <h3>Online Users:</h3>
+                            <h3>Online</h3>
                         </v-subheader>
-                        <v-list-tile >
+                        <v-list-tile>
                             <v-icon>keyboard_arrow_right</v-icon>
                             <v-list-tile-content>
                                 James
@@ -17,12 +17,6 @@
                             <v-icon>keyboard_arrow_right</v-icon>
                             <v-list-tile-content>
                                 Dave
-                            </v-list-tile-content>
-                        </v-list-tile>
-                        <v-list-tile>
-                            <v-icon>keyboard_arrow_right</v-icon>
-                            <v-list-tile-content>
-                                Alex
                             </v-list-tile-content>
                         </v-list-tile>
                     </v-list>
@@ -36,28 +30,49 @@
                 </v-card>
             </v-flex>
             <v-flex shrink>
-                <v-card>
+                <v-card min-width="250px">
                     <v-list>
                         <v-subheader>
-                            <h3>History:</h3>
+                            <h3>History</h3>
                         </v-subheader>
-                        <v-list-tile >
-                            <v-icon>keyboard_arrow_right</v-icon>
+                        <v-list-tile>
                             <v-list-tile-content>
-                                James Connected | 14:24 07/04
+                                <v-list-tile-title>
+                                    James
+                                </v-list-tile-title>
+                                <v-list-tile-sub-title>
+                                    Connected
+                                </v-list-tile-sub-title>
                             </v-list-tile-content>
+                            <v-list-tile-action>
+                                14:45
+                            </v-list-tile-action>
                         </v-list-tile>
                         <v-list-tile>
-                            <v-icon>keyboard_arrow_right</v-icon>
                             <v-list-tile-content>
-                                Dave Connected | 10:10 07/04
+                                <v-list-tile-title>
+                                    Dave
+                                </v-list-tile-title>
+                                <v-list-tile-sub-title>
+                                    Connected
+                                </v-list-tile-sub-title>
                             </v-list-tile-content>
+                            <v-list-tile-action>
+                                12:20
+                            </v-list-tile-action>
                         </v-list-tile>
                         <v-list-tile>
-                            <v-icon>keyboard_arrow_right</v-icon>
                             <v-list-tile-content>
-                                Alex Connected | 11:55 07/04
+                                <v-list-tile-title>
+                                    Alex
+                                </v-list-tile-title>
+                                <v-list-tile-sub-title>
+                                    Disconnected
+                                </v-list-tile-sub-title>
                             </v-list-tile-content>
+                            <v-list-tile-action>
+                                11:50
+                            </v-list-tile-action>
                         </v-list-tile>
                     </v-list>
                 </v-card>
