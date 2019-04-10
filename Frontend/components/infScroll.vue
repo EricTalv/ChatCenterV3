@@ -16,6 +16,7 @@
 
                 // Calculations
                 let percent = Math.round((clientCurrentHeight / clientMaxHeight) * 100); // Calculate the percentage of the height number
+                console.log(percent)
 
                 // Checks
                 if (percent >= 89) { // Check when we see 89% of the page

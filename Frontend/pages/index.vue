@@ -1,7 +1,8 @@
+<!--suppress ALL -->
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <v-container >
-        <v-layout>
-            <v-flex>
+    <v-container>
+        <v-layout justify-center>
+            <v-flex xl10>
                 <v-tabs
                         class="et-Tab"
                         slider-color="black"
