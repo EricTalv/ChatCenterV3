@@ -1,8 +1,9 @@
+<!--suppress ALL -->
 <template>
     <v-container fluid>
         <v-layout>
-            <v-flex xs3>
-                <v-card min-width="250px">
+            <v-flex>
+                <v-card>
                     <v-list>
                         <v-subheader>
                             <h3>Online</h3>
@@ -23,8 +24,8 @@
                     </v-list>
                 </v-card>
             </v-flex>
-            <v-flex xs6 mx-2>
-                <v-card raised tile>
+            <v-flex>
+                <v-card>
                     <v-subheader>
                         <h3>Messages</h3>
                     </v-subheader>
@@ -50,7 +51,7 @@
                         </div>
                     </v-card-title>
                 </v-card>
-                <v-flex>
+                <v-flex ma-5>
                     <v-text-field
                             label="Message"
                             single-line
@@ -58,8 +59,8 @@
                     ></v-text-field>
                 </v-flex>
             </v-flex>
-            <v-flex xs3>
-                <v-card min-width="250px">
+            <v-flex>
+                <v-card>
                     <v-list>
                         <v-subheader>
                             <h3>History</h3>
