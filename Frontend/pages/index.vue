@@ -1,5 +1,5 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <v-container>
+    <v-container >
         <v-layout>
             <v-flex>
                 <v-tabs
@@ -94,7 +94,7 @@
 
     a:hover {
         text-decoration: none;
-        color: red;
+        color: #0E9FDE;
     }
 
 </style>
