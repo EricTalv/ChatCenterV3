@@ -28,8 +28,10 @@
                         <!---->
                         <div>
                             <chat-log></chat-log>
-                            <chat-message></chat-message>
+                            <chat_message></chat_message>
                             <chat-composer></chat-composer>
+
+
                         </div>
                         <!---->
                     </v-card-title>
@@ -70,8 +72,19 @@
 </template>
 
 <script>
+
+    import chat_message from '@/components/chat/ChatMessage';
+    import chat_composer from '@/components/chat/ChatComposer';
+    import chat_log from '@/components/chat/ChatLog';
+
     export default {
         name: "openWorld",
+
+        components: {
+            chat_message,
+            chat_composer,
+            chat_log
+        },
 
         computed: {
             binding () {

@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "chat-message"
+        name: "chatcomposer"
     }
 </script>
 
