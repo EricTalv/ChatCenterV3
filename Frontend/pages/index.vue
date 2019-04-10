@@ -2,6 +2,17 @@
     <v-container>
         <v-layout>
             <v-flex>
+
+                <v-btn
+                        dark
+                        small
+                        top
+                        right
+                        fab
+                >
+                    <v-icon>add</v-icon>
+                </v-btn>
+
                 <v-tabs
                         class="et-Tab"
                         slider-color="black"
