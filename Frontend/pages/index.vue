@@ -37,7 +37,7 @@
 
         data() {
             return {
-                tabs: 'tab-1'
+                tabs: ''
             }
         },
 
