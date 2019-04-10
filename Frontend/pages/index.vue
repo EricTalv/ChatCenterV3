@@ -8,8 +8,8 @@
                         centered
                         grow
                         v-model="model">
-                    <v-tab :href="`#tab-$1`" >Posts</v-tab>
-                    <v-tab :href="`#tab-$2`" >Chats</v-tab>
+                        <v-tab :href="`#tab-$1`" >Posts</v-tab>
+                        <v-tab :href="`#tab-$2`" >Chats</v-tab>
                 </v-tabs>
 
                 <v-tabs-items v-model="model">
@@ -19,17 +19,20 @@
                     >
                         <div class="display-1 text-center ma-5">Posts</div>
                         <inf_scroll>
-                            <post v-for="content in Contents"
-                                  :item="content"
-
+                            <post v-for="item in Contents"
+                                  :content="item"
+                                  :key="item.id"
                             ></post>
+                            <div class="et-Footer" v-show="$store.state.isLoading">
+                                <div class="loader"></div>
+                            </div>
                         </inf_scroll>
                     </v-tab-item>
                     <v-tab-item
                         :key="2"
                         :value="`tab-$2`"
                     >
-                        <div class="display-1 text-center ma-5">Posts</div>
+                        <div class="display-1 text-center ma-5">Chats</div>
                     </v-tab-item>
                 </v-tabs-items>
             </v-flex>
@@ -71,10 +74,15 @@
     }
 </script>
 
-<style scoped>
+<style>
 
     .et-Tab {
         font-family: "Lucida Sans Typewriter", sans-serif;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: red;
     }
 
 </style>
