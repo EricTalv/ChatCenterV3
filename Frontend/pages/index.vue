@@ -2,23 +2,33 @@
     <v-container>
         <v-layout>
             <v-flex>
-                <v-tabs>
-                    <v-tab :href="#tab-$1" >one</v-tab>
-                    <v-tab :href="#tab-$2" >two</v-tab>
+                <v-tabs
+                        class="et-Tab"
+                        slider-color="black"
+                        centered
+                        grow
+                        v-model="model">
+                    <v-tab :href="`#tab-$1`" >Posts</v-tab>
+                    <v-tab :href="`#tab-$2`" >Chats</v-tab>
                 </v-tabs>
 
-                <v-tabs-items v-model="tabs">
+                <v-tabs-items v-model="model">
                     <v-tab-item
                         :key="1"
                         :value="`tab-$1`"
                     >
-                        to one
+                        <div class="display-1 text-center ma-5">Posts</div>
+                        <inf_scroll>
+                            <post v-for="item in Contents"
+                                  :item="item"
+                            ></post>
+                        </inf_scroll>
                     </v-tab-item>
                     <v-tab-item
                         :key="2"
                         :value="`tab-$2`"
                     >
-                        to two
+                        <div class="display-1 text-center ma-5">Posts</div>
                     </v-tab-item>
                 </v-tabs-items>
             </v-flex>
@@ -39,7 +49,7 @@
 
         data() {
             return {
-                model: 'tab-2'
+                model: 'tab-$1'
             }
         },
 
