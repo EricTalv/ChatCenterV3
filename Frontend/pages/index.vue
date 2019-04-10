@@ -2,31 +2,20 @@
     <v-container>
         <v-layout>
             <v-flex>
-
-                <v-btn
-                        dark
-                        small
-                        top
-                        right
-                        fab
-                >
-                    <v-icon>add</v-icon>
-                </v-btn>
-
                 <v-tabs
                         class="et-Tab"
                         slider-color="black"
                         centered
                         grow
                         v-model="model">
-                        <v-tab :href="`#tab-$1`" >Posts</v-tab>
-                        <v-tab :href="`#tab-$2`" >Chats</v-tab>
+                        <v-tab :href="`#posts`" >Posts</v-tab>
+                        <v-tab :href="`#chats`" >Chats</v-tab>
                 </v-tabs>
 
                 <v-tabs-items v-model="model">
                     <v-tab-item
                         :key="1"
-                        :value="`tab-$1`"
+                        :value="`posts`"
                     >
                         <div class="display-1 text-center ma-5">Posts</div>
                         <inf_scroll>
@@ -41,11 +30,23 @@
                     </v-tab-item>
                     <v-tab-item
                         :key="2"
-                        :value="`tab-$2`"
+                        :value="`chats`"
                     >
                         <div class="display-1 text-center ma-5">Chats</div>
                     </v-tab-item>
                 </v-tabs-items>
+
+                <v-btn
+                        small
+                        top
+                        right
+                        fab
+                        fixed
+                        outline
+                >
+                    <v-icon>input</v-icon>
+                </v-btn>
+
             </v-flex>
         </v-layout>
     </v-container>
@@ -64,7 +65,7 @@
 
         data() {
             return {
-                model: 'tab-$1'
+                model: 'posts'
             }
         },
 
