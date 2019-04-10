@@ -19,8 +19,9 @@
                     >
                         <div class="display-1 text-center ma-5">Posts</div>
                         <inf_scroll>
-                            <post v-for="item in Contents"
-                                  :item="item"
+                            <post v-for="content in Contents"
+                                  :item="content"
+
                             ></post>
                         </inf_scroll>
                     </v-tab-item>
