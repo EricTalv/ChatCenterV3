@@ -1,7 +1,7 @@
 <!--suppress ALL -->
 <template>
     <v-container grid-list-xl fluid>
-        <v-layout>
+        <v-layout v-bind="binding">
             <v-flex>
                 <v-card>
                     <v-list>
@@ -114,7 +114,19 @@
 
 <script>
     export default {
-        name: "openWorld"
+        name: "openWorld",
+
+        computed: {
+            binding () {
+                const binding = {}
+
+                if (this.$vuetify.breakpoint.smAndDown) {
+                    binding.column = true;
+                }
+
+                return binding;
+            }
+        }
     }
 </script>
 
