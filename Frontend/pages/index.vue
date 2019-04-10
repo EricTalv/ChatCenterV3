@@ -1,111 +1,27 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <div class="container">
-
-        <v-toolbar
-                color="cyan"
-                dark
-                tabs
-        >
-            <v-toolbar-side-icon></v-toolbar-side-icon>
-
-            <v-toolbar-title>P</v-toolbar-title>
-
-            <v-spacer></v-spacer>
-
-            <v-btn icon>
-                <v-icon>s</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-                <v-icon>m</v-icon>
-            </v-btn>
-
-            <template v-slot:extension>
-                <v-tabs
-                        centered
-                        color="cyan"
-                        slider-color="yellow"
-                >
-                    <v-tab >
-                        Item A
-                    </v-tab>
-                    <v-tab >
-                        Item b
-                    </v-tab>
+    <v-container>
+        <v-layout>
+            <v-flex>
+                <v-tabs>
+                    <v-tab>one</v-tab>
+                    <v-tab>two</v-tab>
                 </v-tabs>
-            </template>
-        </v-toolbar>
 
-        <v-tabs-items >
-            <v-tab-item >
-                <v-card flat>
-                    <v-card-text>item A</v-card-text>
-                </v-card>
-            </v-tab-item>
-
-            <v-tab-item >
-                <v-card flat>
-                    <v-card-text>item b</v-card-text>
-                </v-card>
-            </v-tab-item>
-        </v-tabs-items>
-
-
-
-    <!--    <v-tabs class="et-Tabs-container"
-                color="dark"
-                slider-color="black"
-                centered
-                grow
-        >
-            &lt;!&ndash;<v-tab class="et-Tab">POSTS</v-tab>&ndash;&gt;
-            &lt;!&ndash;<v-tab class="et-Tab">CHATS</v-tab>&ndash;&gt;
-
-
-
-            <v-tab-item>
-                <inf_scroll>
-                    <h1 class="text-center">Posts</h1>
-                    <post
-                            v-for="item in Contents"
-                            :content="item"
-                            :key="item.id"
-                    ></post>
-
-                    <div class="et-Footer" v-show="$store.state.isLoading">
-                        <div class="loader"></div>
-                    </div>
-                </inf_scroll>
-            </v-tab-item>
-
-            <v-tab-item>
-                <h1 class="text-center">Chats</h1>
-                <div class="row">
-                    <div class="col-md-12">
-                        <fieldset class="et-Field">
-                            <legend class="et-Legend">
-                                <h1>Open World Chat</h1>
-                            </legend>
-                            <p class="et-Text">This will be an open world Chat, without excemptions</p>
-                            <v-layout>
-                                <v-flex xs12>
-                                    <v-text-field
-                                            label="Insert a Nickname"
-                                            outline
-                                    ></v-text-field>
-                                </v-flex>
-
-                                <div>
-                                    <v-btn flat large outline >Join Chat</v-btn>
-                                </div>
-                            </v-layout>
-                        </fieldset>
-                    </div>
-                </div>
-            </v-tab-item>
-
-        </v-tabs>-->
-    </div>
+                <v-tabs-items v-model="tabs">
+                    <v-tab-item
+                        :key="tab-1"
+                    >
+                        to one
+                    </v-tab-item>
+                    <v-tab-item
+                        :key="tab-2"
+                    >
+                        to two
+                    </v-tab-item>
+                </v-tabs-items>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
 
 <script>
@@ -120,7 +36,9 @@
         components: {post, inf_scroll},
 
         data() {
-            return {}
+            return {
+                tabs: 'tab-1'
+            }
         },
 
         // After all data has been received and rendered
