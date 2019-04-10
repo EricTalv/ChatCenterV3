@@ -1,6 +1,6 @@
 <!--suppress ALL -->
 <template>
-    <v-container fluid>
+    <v-container grid-list-xl fluid>
         <v-layout>
             <v-flex>
                 <v-card>
@@ -25,7 +25,7 @@
                 </v-card>
             </v-flex>
             <v-flex>
-                <v-card>
+                <v-card elevation="8">
                     <v-subheader>
                         <h3>Messages</h3>
                     </v-subheader>
@@ -51,7 +51,7 @@
                         </div>
                     </v-card-title>
                 </v-card>
-                <v-flex ma-5>
+                <v-flex>
                     <v-text-field
                             label="Message"
                             single-line
