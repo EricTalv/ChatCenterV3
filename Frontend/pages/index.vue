@@ -3,18 +3,20 @@
         <v-layout>
             <v-flex>
                 <v-tabs>
-                    <v-tab>one</v-tab>
-                    <v-tab>two</v-tab>
+                    <v-tab :href="#tab-$1" >one</v-tab>
+                    <v-tab :href="#tab-$2" >two</v-tab>
                 </v-tabs>
 
                 <v-tabs-items v-model="tabs">
                     <v-tab-item
-                        :key="tab-1"
+                        :key="1"
+                        :value="`tab-$1`"
                     >
                         to one
                     </v-tab-item>
                     <v-tab-item
-                        :key="tab-2"
+                        :key="2"
+                        :value="`tab-$2`"
                     >
                         to two
                     </v-tab-item>
@@ -37,7 +39,7 @@
 
         data() {
             return {
-                tabs: ''
+                model: 'tab-2'
             }
         },
 
