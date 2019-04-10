@@ -55,8 +55,8 @@
 
 <script>
 
-    import post from '../components/post';
-    import inf_scroll from '../components/infScroll';
+    import post from '../components/Post';
+    import inf_scroll from '../components/InfScroll';
 
     export default {
 

@@ -19,8 +19,8 @@
 
 <script>
 
-    import admin_post from "../components/adminPost";
-    import inf_scroll from "../components/infScroll";
+    import admin_post from "../components/AdminPost";
+    import inf_scroll from "../components/InfScroll";
 
     export default {
         name: "admin",

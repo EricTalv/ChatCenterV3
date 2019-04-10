@@ -61,7 +61,7 @@
 <script>
 
     import modal from "../components/modal";
-    import modal_interface from "../components/modalInterface";
+    import modal_interface from "./ModalInterface";
 
     export default {
         name: "admin_post",
