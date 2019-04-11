@@ -27,21 +27,23 @@
                     <v-card-title primary-title>
                         <!---->
                         <div>
-                            <chat-log></chat-log>
-                            <chat_message></chat_message>
+                            <chat_log></chat_log>
                             <chat-composer></chat-composer>
-
-
                         </div>
                         <!---->
                     </v-card-title>
                 </v-card>
                 <v-flex>
-                    <v-text-field
-                            label="Message"
-                            single-line
-                            outline
-                    ></v-text-field>
+                    <v-card elevation="8">
+                        <v-input
+                                :messages="['Messages']"
+                                append-icon="close"
+                                prepend-icon="phone"
+
+                        >
+                            Default Slot
+                        </v-input>
+                    </v-card>
                 </v-flex>
             </v-flex>
             <v-flex>
