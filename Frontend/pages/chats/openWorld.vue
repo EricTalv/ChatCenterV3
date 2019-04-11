@@ -32,12 +32,12 @@
                         </div>
                         <!---->
                     </v-card-title>
+
                 </v-card>
-                <v-flex>
-                    <v-card elevation="8">
-                        <et_input></et_input>
-                    </v-card>
-                </v-flex>
+                    <v-text-field>
+
+                    </v-text-field>
+                </v-card>
             </v-flex>
             <v-flex>
                 <v-card>
@@ -86,9 +86,7 @@
         },
 
         methods: {
-            test() {
-                alert('hll');
-            }
+
         },
 
         computed: {

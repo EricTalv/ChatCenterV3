@@ -1,25 +1,27 @@
 <template>
-    <v-input
-            :messages="['Messages']"
-            append-icon="close"
-            prepend-icon="phone"
-            v-on:click="test"
-    >
-        Default Slot
-    </v-input>
+    <div id="et-input-container">
+        <v-input
+                :messages="['Messages']"
+                :append-icon="append-icon"
+                :prepend-icon="prepend-icon"
+        >
+            {{ message }}
+        </v-input>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "et-input"
+        name: "etinput",
+        props: [ 'message', 'prepend-icon', 'append-icon' ]
     }
 </script>
 
 <style>
-    .v-input__prepend-outer,
-    .v-input__append-outer,
-    .v-input__slot,
-    .v-messages {
+    #et-input-container .v-input__prepend-outer,
+    #et-input-container .v-input__append-outer,
+    #et-input-container .v-input__slot,
+    #et-input-container .v-messages {
         border: 1px dashed rgba(0,0,0, .4);
     }
 </style>
