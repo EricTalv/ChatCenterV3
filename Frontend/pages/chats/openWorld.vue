@@ -35,14 +35,7 @@
                 </v-card>
                 <v-flex>
                     <v-card elevation="8">
-                        <v-input
-                                :messages="['Messages']"
-                                append-icon="close"
-                                prepend-icon="phone"
-
-                        >
-                            Default Slot
-                        </v-input>
+                        <et_input></et_input>
                     </v-card>
                 </v-flex>
             </v-flex>
@@ -78,6 +71,7 @@
     import chat_message from '@/components/chat/ChatMessage';
     import chat_composer from '@/components/chat/ChatComposer';
     import chat_log from '@/components/chat/ChatLog';
+    import et_input from '@/components/EtInput';
 
     export default {
         name: "openWorld",
@@ -85,7 +79,16 @@
         components: {
             chat_message,
             chat_composer,
-            chat_log
+            chat_log,
+            et_input
+
+
+        },
+
+        methods: {
+            test() {
+                alert('hll');
+            }
         },
 
         computed: {
@@ -102,6 +105,6 @@
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>
