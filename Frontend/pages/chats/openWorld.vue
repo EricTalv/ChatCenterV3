@@ -28,15 +28,11 @@
                         <!---->
                         <div>
                             <chat_log></chat_log>
-                            <chat-composer></chat-composer>
                         </div>
                         <!---->
                     </v-card-title>
-
-                </v-card>
-                    <v-text-field>
-
-                    </v-text-field>
+                    <v-divider></v-divider>
+                    <chat_composer></chat_composer>
                 </v-card>
             </v-flex>
             <v-flex>
@@ -80,8 +76,7 @@
             chat_message,
             chat_composer,
             chat_log,
-            et_input
-
+            et_input,
 
         },
 
