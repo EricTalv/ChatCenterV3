@@ -11,8 +11,7 @@
 
         data() {
             return {
-                user: "James",
-                message: "Yikes!",
+
             }
         }
     }
