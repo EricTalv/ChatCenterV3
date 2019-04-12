@@ -25,7 +25,7 @@
 
         methods: {
             sendMessage() {
-                this.$emit('messageSent', {
+                this.$emit('messagesent', {
                     message: this.messageText,
                     user: "James"
                 });
