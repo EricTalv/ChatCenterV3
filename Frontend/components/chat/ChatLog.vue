@@ -3,6 +3,7 @@
         <chat_message
               v-for="message in messages"
               :message="message"
+              :key="message.user"
         ></chat_message>
     </div>
 </template>

@@ -64,7 +64,6 @@
 
 <script>
 
-    import chat_message from '@/components/chat/ChatMessage';
     import chat_composer from '@/components/chat/ChatComposer';
     import chat_log from '@/components/chat/ChatLog';
     import et_input from '@/components/EtInput';
