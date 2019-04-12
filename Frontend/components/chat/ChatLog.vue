@@ -1,7 +1,9 @@
 <template>
     <div>
-        <chat_message></chat_message>
-        <chat_message></chat_message>
+        <chat_message
+              v-for="message in messages"
+              :message="message"
+        ></chat_message>
     </div>
 </template>
 
@@ -12,6 +14,22 @@
     export default {
         name: "chatlog",
         components: { chat_message },
+
+        data() {
+            return {
+                messages: [
+                    {
+                        message: 'Hello!',
+                        user: 'James',
+                    },
+
+                    {
+                        message: 'Hello!',
+                        user: 'Dave',
+                    }
+                ]
+            }
+        }
     }
 </script>
 

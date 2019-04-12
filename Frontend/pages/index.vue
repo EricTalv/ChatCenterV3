@@ -13,8 +13,9 @@
                         <v-tab :href="`#chats`" >Chats</v-tab>
                 </v-tabs>
 
-                <v-tabs-items vertical v-model="model">
+                <v-tabs-items v-model="model">
                     <v-tab-item
+                        lazy
                         :key="1"
                         :value="`posts`"
                     >
@@ -30,6 +31,7 @@
                         </inf_scroll>
                     </v-tab-item>
                     <v-tab-item
+                        lazy
                         :key="2"
                         :value="`chats`"
                     >
