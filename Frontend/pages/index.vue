@@ -13,7 +13,7 @@
                         <v-tab :href="`#chats`" >Chats</v-tab>
                 </v-tabs>
 
-                <v-tabs-items v-model="model">
+                <v-tabs-items vertical v-model="model">
                     <v-tab-item
                         :key="1"
                         :value="`posts`"
@@ -34,6 +34,10 @@
                         :value="`chats`"
                     >
                         <div class="display-1 text-center ma-5">Chats</div>
+                        <fieldset>
+                            <legend>Open World Chat</legend>
+                            <p>Your journey begins here</p>
+                        </fieldset>
                     </v-tab-item>
                 </v-tabs-items>
 
