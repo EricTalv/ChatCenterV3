@@ -9,12 +9,6 @@
     export default {
         name: "chatmessage",
         props: ['message'],
-
-        data() {
-            return {
-
-            }
-        }
     }
 </script>
 

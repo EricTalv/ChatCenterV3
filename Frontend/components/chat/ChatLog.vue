@@ -15,22 +15,8 @@
     export default {
         name: "chatlog",
         components: { chat_message },
+        props: ['messages']
 
-        data() {
-            return {
-                messages: [
-                    {
-                        message: 'Hello!',
-                        user: 'James',
-                    },
-
-                    {
-                        message: 'Hello!',
-                        user: 'Dave',
-                    }
-                ]
-            }
-        }
     }
 </script>
 

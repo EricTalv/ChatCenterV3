@@ -1,6 +1,6 @@
 <!--suppress ALL -->
 <template>
-    <v-container grid-list-xl fluid>
+    <v-container fluid grid-list-xl>
         <v-layout v-bind="binding">
             <v-flex>
                 <v-card>
@@ -27,12 +27,15 @@
                     <v-card-title primary-title>
                         <!---->
                         <div>
-                            <chat_log></chat_log>
+                            <chat_log
+                                    :messages="messages"
+                                    v-on:messagsent="addMessage"
+                            ></chat_log>
                         </div>
-                        <!---->
                     </v-card-title>
                     <v-divider></v-divider>
                     <chat_composer></chat_composer>
+                    <!---->
                 </v-card>
             </v-flex>
             <v-flex>
@@ -72,19 +75,38 @@
         name: "openWorld",
 
         components: {
-            chat_message,
             chat_composer,
             chat_log,
             et_input,
 
         },
 
-        methods: {
+        data() {
+            return {
+                messages: [
+                    {
+                        message: 'Hello!',
+                        user: 'James',
+                    },
 
+                    {
+                        message: 'Hello!',
+                        user: 'Dave',
+                    }
+                ]
+            }
+        },
+
+        methods: {
+            addMessage(message) {
+                //add to existing messages
+                this.messages.push(message);
+                // persist to db
+            }
         },
 
         computed: {
-            binding () {
+            binding() {
                 const binding = {}
 
                 if (this.$vuetify.breakpoint.smAndDown) {
