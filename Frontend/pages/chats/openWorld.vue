@@ -29,12 +29,13 @@
                         <div>
                             <chat_log
                                     :messages="messages"
-                                    v-on:messagsent="addMessage"
                             ></chat_log>
                         </div>
                     </v-card-title>
                     <v-divider></v-divider>
-                    <chat_composer></chat_composer>
+                    <chat_composer
+                            v-on:messagesent="addMessage"
+                    ></chat_composer>
                     <!---->
                 </v-card>
             </v-flex>
