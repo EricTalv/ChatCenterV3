@@ -50,7 +50,7 @@
                         fab
                         fixed
                         outline
-                        href="login"
+                        href="auth/login"
                 >
                     <v-icon>input</v-icon>
                 </v-btn>

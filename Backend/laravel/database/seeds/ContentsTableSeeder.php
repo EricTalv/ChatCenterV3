@@ -11,6 +11,6 @@ class ContentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Content::class, 100)->create();
+        factory(App\Content::class, 50)->create();
     }
 }
