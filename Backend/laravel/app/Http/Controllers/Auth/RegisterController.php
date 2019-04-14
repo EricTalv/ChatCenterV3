@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use http\Env\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -32,7 +33,6 @@ class RegisterController extends Controller
     protected $redirectTo = '';
     protected $auth;
 
-
     /**
      * Create a new controller instance.
      *
@@ -42,7 +42,6 @@ class RegisterController extends Controller
     {
         $this->auth = $auth;
     }
-
 
     /**
      * Handle a registration request for the application.
