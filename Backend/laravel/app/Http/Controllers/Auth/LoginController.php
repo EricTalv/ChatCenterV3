@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Tymon\JWTAuth\JWTAuth;
 
 class LoginController extends Controller
 {
@@ -33,7 +34,8 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(JWTAuth $auth)
     {
+        $this->auth = $auth;
     }
 }
