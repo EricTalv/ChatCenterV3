@@ -24,10 +24,11 @@ class MeController extends Controller
 
     public function logout()
     {
-        $this->auth->invalidate();
+        auth()->logout(true);
 
         return response()->json([
             'success' => true,
+            'message' => 'I think you are logged out now',
         ]);
 
     }
