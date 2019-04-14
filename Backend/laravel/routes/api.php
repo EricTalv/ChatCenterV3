@@ -22,7 +22,6 @@ Route::group(['prefix' => '/auth', ['middleware' => 'throttle:20,5']], function(
     Route::post('/register', 'Auth\RegisterController@register');
     Route::post('/login', 'Auth\LoginController@login');
 });
-
-
+//done
 
 //Route::get('content-data', 'ContentsController@GetAllContents');
