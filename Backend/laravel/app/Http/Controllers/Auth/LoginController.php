@@ -94,13 +94,10 @@ class LoginController extends Controller
         }
 
         return response()->json([
-            'success' => false,
-            'error' => [
-                'email' => [
-                    "Invalid email or password"
-                ]
-            ]
-        ], 422);
+            'success' => true,
+            'data' => $request->user(),
+            'token' => $token
+        ], 200);
 
     }
 }
