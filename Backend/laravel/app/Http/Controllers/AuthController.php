@@ -31,8 +31,9 @@ class AuthController extends Controller
             } else {
                 return response()->json([
                     'success' => true,
-                    'token'
-                ]);
+                    'data' => $request->user(),
+                    'token' => $token
+                ], 200);
             }
         } catch (JWTException $e) {
             return response()->json([
