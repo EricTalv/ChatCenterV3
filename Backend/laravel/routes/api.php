@@ -21,7 +21,7 @@ Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@authenticate');
 Route::post('/refresh', 'AuthController@refresh');
 
-Route::group(['middleware' => ['jwt.verify']], function() {
+Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('user', 'AuthController@getAuthenticatedUser');
 });
 
