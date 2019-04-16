@@ -12,45 +12,44 @@ use JWTAuth;
 
 class AuthController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     *
+     */
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
+
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 400);
+                return response()->json([
+                    'success' => false,
+                    'error' => 'invalid_credentials'
+                ], 422);
+            } else {
+                return response()->json([
+                    'success' => true,
+                    'token'
+                ]);
             }
         } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+            return response()->json([
+                'success' => false,
+                'error' => 'could_not_create_token'
+            ], 500);
         }
-        return response()->json(compact('token'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     *
+     */
     public function register(Request $request)
     {
-
-
-        /*  $validator = $this->validator($request->all());
-
-
-          if(!$validator->fails()){
-
-              $user = User::create($request->all());
-
-              $token = JWTAuth::attempt($request->only('email', 'name', 'password'));
-
-              return response()->json([
-                  'success' => true,
-                  'data' => $user,
-                  'token' => $token,
-              ], 201);
-          }
-
-          return response()->json([
-              'success' => false,
-              'errors' => $validator->errors()
-          ]);*/
-
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -79,8 +78,6 @@ class AuthController extends Controller
                 'errors' => $validator->errors(),
             ], 400);
         }
-
-
     }
 
     public function getAuthenticatedUser()
