@@ -126,7 +126,6 @@ class AuthController extends Controller
     public function logout()
     {
         try {
-
             return response()->json([
                 'success' => true,
                 'token' => auth()->logout()
