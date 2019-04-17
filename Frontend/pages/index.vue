@@ -20,15 +20,7 @@
                         :value="`posts`"
                     >
                         <div class="display-1 text-center ma-5">Posts</div>
-                        <inf_scroll>
-                            <post v-for="item in Contents"
-                                  :content="item"
-                                  :key="item.id"
-                            ></post>
-                            <div class="et-Footer" v-show="$store.state.isLoading">
-                                <div class="loader"></div>
-                            </div>
-                        </inf_scroll>
+                        <post_list></post_list>
                     </v-tab-item>
                     <v-tab-item
                         lazy
@@ -62,36 +54,20 @@
 
 <script>
 
-    import post from '../components/Post';
-    import inf_scroll from '../components/InfScroll';
+    import post_list from '../components/PostList';
 
     export default {
 
         // Retrieve components
         name: "index",
-        components: {post, inf_scroll},
+        components: {post_list},
 
         data() {
             return {
                 model: 'posts'
             }
         },
-
-        // After all data has been received and rendered
-        created() {
-            // Perform dispatch to retrieveData from Store
-            this.$store.dispatch('retrieveData');
-        },
-
-        // Computes any changes
-        computed: {
-            // Retrieve any data stored in Contents.State
-            Contents() {
-                return this.$store.state.contents;
-            }
-        }
-
-    }
+   }
 </script>
 
 <style>

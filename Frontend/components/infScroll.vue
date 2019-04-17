@@ -20,7 +20,7 @@
 
                 // Checks
                 if (percent >= 89) { // Check when we see 89% of the page
-                    this.$store.dispatch('getNextPage'); // run dispatch
+                    this.$store.dispatch('posts/getNextPage'); // run dispatch
                 }
             }
         }
