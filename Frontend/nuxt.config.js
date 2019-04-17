@@ -37,10 +37,10 @@ module.exports = {
     ** Plugins to load before mounting the App
     */
     plugins: [
-        '~/plugins/api',
-        '~/plugins/infScroll',
-        '~/plugins/vuetify',
-        '~/plugins/echo',
+        '@/plugins/api',
+        '@/plugins/infScroll',
+        '@/plugins/vuetify',
+        '@/plugins/echo',
     ],
 
     /*
