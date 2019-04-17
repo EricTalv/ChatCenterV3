@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use function MongoDB\BSON\toJSON;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Validator;
 use Hash;
@@ -91,15 +92,12 @@ class AuthController extends Controller
                 ], 200);
             }
         } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-
             return response()->json(['token_expired'], $e->getStatusCode());
 
         } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-
             return response()->json(['token_invalid'], $e->getStatusCode());
 
         } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
-
             return response()->json(['token_absent'], $e->getStatusCode());
 
         }
@@ -112,11 +110,33 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        return response()->json(['token' => auth()->refresh()]);
+        try {
+            return response()->json([
+                'success' => true,
+                'token' => auth()->refresh()
+            ]);
+
+        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+            return response()->json([
+                'error' => $e->getMessage()
+            ], $e->getStatusCode());
+        }
     }
 
     public function logout()
     {
-        return response()->json(['token' => auth()->logout()]);
+        try {
+
+            return response()->json([
+                'success' => true,
+                'token' => auth()->logout()
+            ], 205);
+
+        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+
+            return response()->json([
+                'error' => $e->getMessage()
+            ], $e->getStatusCode());
+        }
     }
 }
