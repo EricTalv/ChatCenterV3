@@ -26,7 +26,7 @@ class AuthController extends Controller
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json([
                     'success' => false,
-                    'error' => 'INVALID_CREDENTIALS'
+                    'error' => 'invalid_credentials'
                 ], 422);
             } else {
                 return response()->json([
@@ -38,7 +38,7 @@ class AuthController extends Controller
         } catch (JWTException $e) {
             return response()->json([
                 'success' => false,
-                'error' => 'COULD_NOT_CREATE_TOKEN'
+                'error' => 'could_not_create_token'
             ], 500);
         }
     }
@@ -58,14 +58,11 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-
             return response()->json([
                 'success' => false,
                 'errors' => $validator->errors(),
             ], 400);
-
         } else {
-
             $user = User::create([
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
@@ -91,7 +88,7 @@ class AuthController extends Controller
             } else {
                 return response()->json([
                     'data' => $user
-                ],200);
+                ], 200);
             }
         } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
 
@@ -116,5 +113,10 @@ class AuthController extends Controller
     public function refresh()
     {
         return response()->json(['token' => auth()->refresh()]);
+    }
+
+    public function logout()
+    {
+        return response()->json(['token' => auth()->logout()]);
     }
 }
