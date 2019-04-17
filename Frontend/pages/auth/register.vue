@@ -13,11 +13,14 @@
                         </v-toolbar>
                         <v-card-text>
                             <v-form>
-                                <v-text-field label="Name" name="name" prepend-icon="person"
+                                <v-text-field v-model="name" label="Name" name="name" prepend-icon="person"
                                               type="text"></v-text-field>
-                                <v-text-field label="Email" name="email" prepend-icon="email"
+                                <v-text-field v-model="email" label="Email" name="email" prepend-icon="email"
                                               type="text"></v-text-field>
-                                <v-text-field id="password" label="Password" name="password" prepend-icon="lock"
+                                <v-divider></v-divider>
+                                <v-text-field v-model="password" id="password" label="Password" name="password" prepend-icon="lock"
+                                              type="password"></v-text-field>
+                                <v-text-field v-model="passwordConfirm" id="passwordConfirm" label="Confirm Password" name="passwordConfirm" prepend-icon="lock"
                                               type="password"></v-text-field>
                             </v-form>
                         </v-card-text>
@@ -36,7 +39,7 @@
     export default {
         name: "register",
         methods: {
-            login(){
+            register(){
                 this.$store.dispatch('auth/register');
             }
         },
