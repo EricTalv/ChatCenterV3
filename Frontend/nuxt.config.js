@@ -40,6 +40,7 @@ module.exports = {
         '~/plugins/api',
         '~/plugins/infScroll',
         '~/plugins/vuetify',
+        '~/plugins/echo',
     ],
 
     /*
