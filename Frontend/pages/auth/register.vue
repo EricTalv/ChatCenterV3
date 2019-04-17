@@ -12,15 +12,15 @@
                             </v-toolbar-items>
                         </v-toolbar>
                         <v-card-text>
-                            <v-form>
-                                <v-text-field v-model="name" label="Name" name="name" prepend-icon="person"
+                            <v-form @submit.prevent="register">
+                                <v-text-field v-model="form.name" label="Name" name="name" prepend-icon="person"
                                               type="text"></v-text-field>
-                                <v-text-field v-model="email" label="Email" name="email" prepend-icon="email"
+                                <v-text-field v-model="form.email" label="Email" name="email" prepend-icon="email"
                                               type="text"></v-text-field>
                                 <v-divider></v-divider>
-                                <v-text-field v-model="password" id="password" label="Password" name="password" prepend-icon="lock"
+                                <v-text-field v-model="form.password" id="password" label="Password" name="password" prepend-icon="lock"
                                               type="password"></v-text-field>
-                                <v-text-field v-model="passwordConfirm" id="passwordConfirm" label="Confirm Password" name="passwordConfirm" prepend-icon="lock"
+                                <v-text-field v-model="form.passwordConfirm" id="passwordConfirm" label="Confirm Password" name="passwordConfirm" prepend-icon="lock"
                                               type="password"></v-text-field>
                             </v-form>
                         </v-card-text>
@@ -38,44 +38,27 @@
 <script>
     export default {
         name: "register",
+        data() {
+            return {
+                form: {
+                    name: '',
+                    email: '',
+                    password: '',
+                    password_confirmation: '',
+                }
+            }
+        },
         methods: {
-            register(){
-                this.$store.dispatch('auth/register');
+            async register(){
+                await this.$axios.post('/register', this.form);
+
+                this.$auth.login({data: this.form});
+
+                this.$router.push('/');
             }
         },
         computed:{
-            email: {
-                get() {
-                    return this.$store.state.auth.forms.register.email;
-                },
-                set(value){
-                    this.$store.dispatch('auth/setFormData', {form: 'register', key:'email', value: value})
-                }
-            },
-            password: {
-                get() {
-                    return this.$store.state.auth.forms.register.password;
-                },
-                set(value){
-                    this.$store.dispatch('auth/setFormData', {form: 'register', key:'password', value: value})
-                }
-            },
-            passwordConfirm: {
-                get() {
-                    return this.$store.state.auth.forms.register.password_confirmation;
-                },
-                set(value){
-                    this.$store.dispatch('auth/setFormData', {form: 'register', key:'password_confirmation', value: value})
-                }
-            },
-            name: {
-                get() {
-                    return this.$store.state.auth.forms.register.name;
-                },
-                set(value){
-                    this.$store.dispatch('auth/setFormData', {form: 'register', key:'name', value: value})
-                }
-            }
+
         }
     }
 </script>

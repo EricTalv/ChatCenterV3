@@ -47,7 +47,7 @@ export const actions = {
     // Get our first batch of data
     retrieveData(context) {
         // Send call to /content-data api and retrieve response
-        this.$api.get('/content-data').then(response => {
+        this.$axios.get('/content-data').then(response => {
             // Store our retrieve data(Response) to the content state
             context.commit('CONTENT_RETRIEVAL', response.data.data);
             // Load the current page object
@@ -66,7 +66,7 @@ export const actions = {
             context.commit('SET_STATUS', true);
             context.commit('SET_LOADING', true);
             // Add current Page variable to api
-            this.$api.get('/content-data?page=' + (context.state.currentPage.current_page + 1)).then(response => {
+            this.$axios.get('/content-data?page=' + (context.state.currentPage.current_page + 1)).then(response => {
                 // Retrieve first Data Object
                 context.commit('SET_CURRENT_PAGE', response.data);
                 // Get data array from that object

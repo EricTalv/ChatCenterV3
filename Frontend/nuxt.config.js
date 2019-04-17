@@ -48,6 +48,7 @@ module.exports = {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
+        '@nuxtjs/auth',
         // Doc: https://bootstrap-vue.js.org/docs/
         'bootstrap-vue/nuxt',
         '@nuxtjs/pwa',
@@ -57,7 +58,36 @@ module.exports = {
     */
     axios: {
         // See https://github.com/nuxt-community/axios-module#options
-        browserBaseURL: 'http://192.168.99.100:8080/api/'
+        baseURL: 'http://192.168.99.100:8080/api/'
+    },
+
+    /*
+    * Nuxt auth configuration
+    * */
+    auth: {
+        strategies: {
+            local: {
+                endpoints: {
+                    login: {
+                        url: 'login',
+                        method: 'post',
+                        propertyName: 'token'
+                    },
+                    user: {
+                        url: 'user',
+                        method: 'get',
+                        propertyName: 'data'
+                    },
+                    logout: {
+                        url: 'logout',
+                        method: 'get'
+                    }
+                }
+            }
+        },
+        redirect: {
+            home: '/'
+        }
     },
 
     /*
