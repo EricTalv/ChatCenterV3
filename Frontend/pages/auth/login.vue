@@ -21,7 +21,7 @@
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn dark>Login</v-btn>
+                            <v-btn v-on:click="login" dark>Login</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-flex>
@@ -32,7 +32,32 @@
 
 <script>
     export default {
-        name: "login"
+        name: "login",
+        mounted(){
+        },
+        methods: {
+            login(){
+                this.$store.dispatch('auth/login');
+            }
+        },
+        computed:{
+            email: {
+                get() {
+                    return this.$store.state.auth.forms.login.email;
+                },
+                set(value){
+                    this.$store.dispatch('auth/setFormData', {form: 'login', key:'email', value: value})
+                }
+            },
+            password: {
+                get() {
+                    return this.$store.state.auth.forms.login.password;
+                },
+                set(value){
+                    this.$store.dispatch('auth/setFormData', {form: 'login', key:'password', value: value})
+                }
+            }
+        }
     }
 </script>
 

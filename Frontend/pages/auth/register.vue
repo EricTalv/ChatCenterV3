@@ -23,7 +23,7 @@
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn dark>Register</v-btn>
+                            <v-btn v-on:click="register" dark>Register</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-flex>
@@ -34,7 +34,46 @@
 
 <script>
     export default {
-        name: "register"
+        name: "register",
+        methods: {
+            login(){
+                this.$store.dispatch('auth/register');
+            }
+        },
+        computed:{
+            email: {
+                get() {
+                    return this.$store.state.auth.forms.register.email;
+                },
+                set(value){
+                    this.$store.dispatch('auth/setFormData', {form: 'register', key:'email', value: value})
+                }
+            },
+            password: {
+                get() {
+                    return this.$store.state.auth.forms.register.password;
+                },
+                set(value){
+                    this.$store.dispatch('auth/setFormData', {form: 'register', key:'password', value: value})
+                }
+            },
+            passwordConfirm: {
+                get() {
+                    return this.$store.state.auth.forms.register.password_confirmation;
+                },
+                set(value){
+                    this.$store.dispatch('auth/setFormData', {form: 'register', key:'password_confirmation', value: value})
+                }
+            },
+            name: {
+                get() {
+                    return this.$store.state.auth.forms.register.name;
+                },
+                set(value){
+                    this.$store.dispatch('auth/setFormData', {form: 'register', key:'name', value: value})
+                }
+            }
+        }
     }
 </script>
 
