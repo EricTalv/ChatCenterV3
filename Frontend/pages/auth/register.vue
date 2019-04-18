@@ -41,7 +41,7 @@
                                 ></v-text-field>
 
 
-                                <v-text-field v-model="form.passwordConfirm"
+                                <v-text-field v-model="form.password_confirmation"
                                               id="passwordConfirm"
                                               label="Confirm Password"
                                               name="passwordConfirm"
@@ -118,12 +118,11 @@
         methods: {
             async register() {
                 this.$axios.post('/register', this.form).then((resp) => {
-                    console.log(resp);
+                }).then(() => {
+                    console.log(`[REG]Request Status: ${resp.status}`);
                 }).catch((err) => {
-                    console.log(err.response.data.errors);
                     this.errorsList = err.response.data.errors;
-
-
+                    console.log(`[REG]Request Status: ${resp.status}`);
                 });
             },
 
