@@ -38,6 +38,7 @@
                                               :append-icon="pwVisible ? 'visibility_off' : 'visibility'"
                                               @click:append="() => (pwVisible = !pwVisible)"
                                               :type="pwVisible ? 'text' : 'password'"
+                                              :counter="6"
                                 ></v-text-field>
 
 
@@ -102,7 +103,7 @@
                 ],
                 passwordRules: [
                     v => !!v || 'Password is required',
-                    v => v.length > 4 || 'Password must be more than 4 characters'
+                    v => v.length > 6 || 'Password must be at least 6 characters'
                 ],
                 pwConfirmRules: [
                     v => !!v || 'Password Confirmation is required',
@@ -123,7 +124,7 @@
                     console.log(`[REG]Request Status: `, resp.response.status);
 
                 }).catch((err) =>    {
-                    responseStatus = false
+                    responseStatus = false;
 
                     this.responseList = err.response.data.errors;
                     console.log(`[REG]Request Status: `, err.response.status);
