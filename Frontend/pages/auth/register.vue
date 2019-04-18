@@ -59,14 +59,15 @@
                             <v-btn v-on:click="register" dark>Register</v-btn>
                         </v-card-actions>
                         <v-slide-y-transition
-                                v-if="errorsList"
-                                v-for="error in errorsList"
-                                :item="error">
+                                v-if="responseList"
+                                v-for="response in responseList"
+                                :key="response.id"
+                                :item="response">
                             <v-alert
                                     :value="true"
                                     type="error"
                             >
-                                <p v-for="err in error">{{err}}</p>
+                                <p  v-for="message in response">{{ message }} </p>
                             </v-alert>
                         </v-slide-y-transition>
                     </v-card>
@@ -84,14 +85,13 @@
 
                 pwVisible: false,
 
-
                 form: {
                     name: '',
                     email: '',
                     password: '',
                     password_confirmation: '',
                 },
-                errorsList: null,
+                responseList: null,
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => v.length > 4 || 'Name must be more than 4 characters'
@@ -111,18 +111,23 @@
             }
         },
 
-        watch: {
-            match: 'validateField'
-        },
-
         methods: {
             async register() {
-                this.$axios.post('/register', this.form).then((resp) => {
-                }).then(() => {
-                    console.log(`[REG]Request Status: ${resp.status}`);
-                }).catch((err) => {
-                    this.errorsList = err.response.data.errors;
-                    console.log(`[REG]Request Status: ${resp.status}`);
+
+                var responseStatus;
+
+                this.$axios.post('/register', this.form)
+
+                .then((resp) => {
+                    responseStatus = true;
+                    console.log(`[REG]Request Status: `, resp.response.status);
+
+                }).catch((err) =>    {
+                    responseStatus = false
+
+                    this.responseList = err.response.data.errors;
+                    console.log(`[REG]Request Status: `, err.response.status);
+                    console.log(err.response.data.errors);
                 });
             },
 
