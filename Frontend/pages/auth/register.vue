@@ -13,17 +13,34 @@
                         </v-toolbar>
                         <v-card-text>
                             <v-form @submit.prevent="register">
-                                <v-text-field v-model="form.name" label="Name" name="name" prepend-icon="person"
-                                              type="text"></v-text-field>
-                                <v-text-field v-model="form.email" label="Email" name="email" prepend-icon="email"
-                                              type="text"></v-text-field>
+                                <v-text-field v-model="form.name"
+                                              label="Name"
+                                              name="name"
+                                              prepend-icon="person"
+                                              type="text"
+                                              :rules="rules"
+                                ></v-text-field>
+                                <v-text-field v-model="form.email"
+                                              label="Email"
+                                              name="email"
+                                              prepend-icon="email"
+                                              type="text"
+                                ></v-text-field>
                                 <v-divider></v-divider>
-                                <v-text-field v-model="form.password" id="password" label="Password" name="password"
+                                <v-text-field v-model="form.password"
+                                              id="password"
+                                              label="Password"
+                                              name="password"
                                               prepend-icon="lock"
-                                              type="password"></v-text-field>
-                                <v-text-field v-model="form.passwordConfirm" id="passwordConfirm"
-                                              label="Confirm Password" name="passwordConfirm" prepend-icon="lock"
-                                              type="password"></v-text-field>
+                                              type="password"
+                                ></v-text-field>
+                                <v-text-field v-model="form.passwordConfirm"
+                                              id="passwordConfirm"
+                                              label="Confirm Password"
+                                              name="passwordConfirm"
+                                              prepend-icon="lock"
+                                              type="password"
+                                ></v-text-field>
                             </v-form>
                         </v-card-text>
                         <v-card-actions>
@@ -38,7 +55,7 @@
                                     :value="true"
                                     type="error"
                             >
-                                Error: {{ error[0] }}
+                                <p v-for="err in error">{{err}}</p>
                             </v-alert>
                         </v-slide-y-transition>
                     </v-card>
