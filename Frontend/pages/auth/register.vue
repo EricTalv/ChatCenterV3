@@ -25,6 +25,7 @@
                                               name="email"
                                               prepend-icon="email"
                                               type="text"
+                                              :rules="rules"
                                 ></v-text-field>
                                 <v-divider></v-divider>
                                 <v-text-field v-model="form.password"
@@ -33,6 +34,7 @@
                                               name="password"
                                               prepend-icon="lock"
                                               type="password"
+                                              :rules="rules"
                                 ></v-text-field>
                                 <v-text-field v-model="form.passwordConfirm"
                                               id="passwordConfirm"
@@ -40,6 +42,7 @@
                                               name="passwordConfirm"
                                               prepend-icon="lock"
                                               type="password"
+                                              :rules="rules"
                                 ></v-text-field>
                             </v-form>
                         </v-card-text>
