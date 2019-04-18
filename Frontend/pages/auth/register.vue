@@ -30,14 +30,15 @@
                             <v-spacer></v-spacer>
                             <v-btn v-on:click="register" dark>Register</v-btn>
                         </v-card-actions>
-                        <v-slide-y-transition v-if="errorsList">
+                        <v-slide-y-transition
+                                v-if="errorsList"
+                                v-for="error in errorsList"
+                                :item="error">
                             <v-alert
-                                    v-for="error in errorsList"
-                                    :item="error"
                                     :value="true"
                                     type="error"
                             >
-                                Error: {{ error }}
+                                Error: {{ error[0] }}
                             </v-alert>
                         </v-slide-y-transition>
                     </v-card>
