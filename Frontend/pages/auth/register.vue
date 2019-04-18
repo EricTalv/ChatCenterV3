@@ -18,14 +18,14 @@
                                               name="name"
                                               prepend-icon="person"
                                               type="text"
-                                              :rules="rules"
+                                              :rules="nameRules"
                                 ></v-text-field>
                                 <v-text-field v-model="form.email"
                                               label="Email"
                                               name="email"
                                               prepend-icon="email"
                                               type="text"
-                                              :rules="rules"
+                                              :rules="emailRules"
                                 ></v-text-field>
                                 <v-divider></v-divider>
                                 <v-text-field v-model="form.password"
@@ -34,16 +34,24 @@
                                               name="password"
                                               prepend-icon="lock"
                                               type="password"
-                                              :rules="rules"
+                                              :rules="passwordRules"
+                                              :append-icon="pwVisible ? 'visibility_off' : 'visibility'"
+                                              @click:append="() => (pwVisible = !pwVisible)"
+                                              :type="pwVisible ? 'text' : 'password'"
                                 ></v-text-field>
+
+
                                 <v-text-field v-model="form.passwordConfirm"
                                               id="passwordConfirm"
                                               label="Confirm Password"
                                               name="passwordConfirm"
                                               prepend-icon="lock"
                                               type="password"
-                                              :rules="rules"
+                                              :rules="pwConfirmRules"
+                                              :type="pwVisible ? 'text' : 'password'"
                                 ></v-text-field>
+
+
                             </v-form>
                         </v-card-text>
                         <v-card-actions>
@@ -73,6 +81,10 @@
         name: "register",
         data() {
             return {
+
+                pwVisible: false,
+
+
                 form: {
                     name: '',
                     email: '',
@@ -80,9 +92,29 @@
                     password_confirmation: '',
                 },
                 errorsList: null,
-
+                nameRules: [
+                    v => !!v || 'Name is required',
+                    v => v.length > 4 || 'Name must be more than 4 characters'
+                ],
+                emailRules: [
+                    v => !!v || 'E-mail is required',
+                    v => /.+@.+/.test(v) || 'E-mail must be valid'
+                ],
+                passwordRules: [
+                    v => !!v || 'Password is required',
+                    v => v.length > 4 || 'Password must be more than 4 characters'
+                ],
+                pwConfirmRules: [
+                    v => !!v || 'Password Confirmation is required',
+                    v => this.form.password === v || 'Password does not match'
+                ]
             }
         },
+
+        watch: {
+            match: 'validateField'
+        },
+
         methods: {
             async register() {
                 this.$axios.post('/register', this.form).then((resp) => {
@@ -93,13 +125,9 @@
 
 
                 });
-                /*
-                                this.$auth.login({data: this.form});
+            },
 
-                                this.$router.push('/');*/
-            }
         },
-        computed: {}
     }
 </script>
 
