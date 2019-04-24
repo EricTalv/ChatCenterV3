@@ -78,7 +78,7 @@
 
                 pwVisible: false,
 
-                responseList: false,
+                responseList: null,
 
                 form: {
                     name: '',
@@ -119,8 +119,15 @@
                         console.log({err});
                         savedResponse = false;
                         this.responseStatus = savedResponse;
-                        this.responseList = err.response.data.error;
+                        this.responseList = [
+                            {
+                                response: err.response.data.error
+                            }
+                        ];
+
+
                         console.log('Response: ', err.response.status)
+                        console.log(this.responseList)
                     })
             },
 
