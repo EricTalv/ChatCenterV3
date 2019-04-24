@@ -138,7 +138,7 @@
 
                         this.responseList = [
                             {
-                                success: "Your request was a success!"
+                                message: "Your request was a success!"
                             }
                         ];
                         if (this.responseStatus) {
