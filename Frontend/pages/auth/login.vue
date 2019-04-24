@@ -14,13 +14,13 @@
                         <v-card-text>
                             <v-form>
                                 <v-text-field
-                                              label="Login"
-                                              v-model="form.name"
-                                              id="login"
-                                              name="login"
-                                              prepend-icon="person"
-                                              type="text"
-                                              :rules="nameRules"
+                                        label="Login"
+                                        v-model="form.name"
+                                        id="login"
+                                        name="login"
+                                        prepend-icon="person"
+                                        type="text"
+                                        :rules="nameRules"
                                 ></v-text-field>
                                 <v-text-field v-model="form.password"
                                               id="password"
@@ -39,6 +39,7 @@
                             <v-spacer></v-spacer>
                             <v-btn v-on:click="login" dark>Login</v-btn>
                         </v-card-actions>
+
                         <v-slide-y-transition
                                 v-if="responseList"
                                 v-for="response in responseList"
@@ -61,6 +62,7 @@
                                 <p v-for="message in response">{{ message }}</p>
                             </v-alert>
                         </v-slide-y-transition>
+
                     </v-card>
                 </v-flex>
             </v-layout>
@@ -76,13 +78,11 @@
 
                 pwVisible: false,
 
-                responseStatus: null,
-
-                responseList: null,
+                responseList: false,
 
                 form: {
                     name: '',
-                    password: '',
+                    password: ''
                 },
                 nameRules: [
                     v => !!v || 'Name is required'
@@ -102,24 +102,24 @@
 
                 this.$axios.post('/login', this.form)
 
-                .then((resp) => {
-                    console.log({resp})
-                    console.log('Response: ', resp.status);
-                    savedResponse = true;
-                    this.responseStatus = savedResponse;
+                    .then((resp) => {
+                        console.log({resp})
+                        console.log('Response: ', resp.status);
+                        savedResponse = true;
+                        this.responseStatus = savedResponse;
 
-                    this.responseList = [
-                        {
-                            message: "Your request was a success!"
-                        }
-                    ];
+                        this.responseList = [
+                            {
+                                message: "Your request was a success!"
+                            }
+                        ];
 
-                })
+                    })
                     .catch((err) => {
                         console.log({err});
                         savedResponse = false;
                         this.responseStatus = savedResponse;
-                        this.responseList = err.response.data.errors;
+                        this.responseList = err.response.data.error;
                         console.log('Response: ', err.response.status)
                     })
             },

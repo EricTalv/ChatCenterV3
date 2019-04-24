@@ -97,13 +97,13 @@
 
                 responseStatus: null,
 
+                responseList: null,
                 form: {
                     name: '',
                     email: '',
                     password: '',
                     password_confirmation: '',
                 },
-                responseList: null,
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => v.length > 4 || 'Name must be more than 4 characters'
