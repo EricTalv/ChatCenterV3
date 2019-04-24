@@ -13,10 +13,21 @@
                         </v-toolbar>
                         <v-card-text>
                             <v-form>
-                                <v-text-field label="Login" name="login" prepend-icon="person"
-                                              type="text"></v-text-field>
-                                <v-text-field id="password" label="Password" name="password" prepend-icon="lock"
-                                              type="password"></v-text-field>
+                                <v-text-field label="Login"
+                                              v-model="form.name"
+                                              name="login"
+                                              prepend-icon="person"
+                                              type="text"
+                                              :rules="nameRules"
+                                ></v-text-field>
+                                <v-text-field id="password"
+                                              label="Password"
+                                              v-model="form.password"
+                                              name="password"
+                                              prepend-icon="lock"
+                                              type="password"
+                                              :rules="passwordRules"
+                                ></v-text-field>
                             </v-form>
                         </v-card-text>
                         <v-card-actions>
@@ -33,31 +44,45 @@
 <script>
     export default {
         name: "login",
-        mounted(){
+        data() {
+            return {
+
+                pwVisible: false,
+
+                responseStatus: null,
+
+                form: {
+                    name: '',
+                    password: '',
+                },
+                responseList: null,
+                nameRules: [
+                    v => !!v || 'Name is required',
+                    v => v.length > 4 || 'Name must be more than 4 characters'
+                ],
+
+                passwordRules: [
+                    v => !!v || 'Password is required',
+                    v => v.length > 6 || 'Password must be at least 6 characters'
+                ],
+
+            }
         },
+
         methods: {
-            login(){
-                this.$store.dispatch('auth/login');
-            }
-        },
-        computed:{
-            email: {
-                get() {
-                    return this.$store.state.auth.forms.login.email;
-                },
-                set(value){
-                    this.$store.dispatch('auth/setFormData', {form: 'login', key:'email', value: value})
-                }
+            async login() {
+
+                this.$axios.post('/login', this.form)
+
+                    .then((resp) => {
+
+                    })
+                    .catch((err) => {
+
+                    })
             },
-            password: {
-                get() {
-                    return this.$store.state.auth.forms.login.password;
-                },
-                set(value){
-                    this.$store.dispatch('auth/setFormData', {form: 'login', key:'password', value: value})
-                }
-            }
-        }
+
+        },
     }
 </script>
 
