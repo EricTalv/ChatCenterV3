@@ -66,18 +66,18 @@
                             <v-alert
                                     :value="true"
                                     type="error"
-                                    v-if="responseStatus === 'false'"
+                                    v-if="!responseStatus"
 
                             >
-                                <p  v-for="message in response">{{ message }}</p>
+                                <p v-for="message in response">{{ message }}</p>
                             </v-alert>
                             <v-alert
                                     :value="true"
                                     type="success"
-                                    v-else="responseStatus === 'true'"
+                                    v-else="responseStatus"
 
                             >
-                                <p  v-for="message in response">{{ message }}</p>
+                                <p v-for="message in response">{{ message }}</p>
                             </v-alert>
                         </v-slide-y-transition>
                     </v-card>
@@ -130,23 +130,28 @@
 
                 this.$axios.post('/register', this.form)
 
-                .then((resp) => {
-                    console.log({resp})
-                    console.log('Response: ',resp.status);
-                    savedResponse = true;
-                    this.responseStatus = savedResponse;
+                    .then((resp) => {
+                        console.log({resp})
+                        console.log('Response: ', resp.status);
+                        savedResponse = true;
+                        this.responseStatus = savedResponse;
 
-                    this.responseList = [
-                        {
-                            success: "Your request was a success!"
+                        this.responseList = [
+                            {
+                                success: "Your request was a success!"
+                            }
+                        ];
+                        if (this.responseStatus) {
+                            this.$router.push('/');
+
                         }
-                    ];
-                })
+                    })
                     .catch((err) => {
                         console.log({err});
                         savedResponse = false;
                         this.responseStatus = savedResponse;
-                        console.log('Response: ',err.response.status)
+
+                        console.log('Response: ', err.response.status)
                         this.responseList = err.response.data.errors;
                     })
             },
