@@ -66,7 +66,15 @@
                             <v-alert
                                     :value="true"
                                     type="error"
-                                    v-if="this.responseStatus"
+                                    v-if="responseStatus === 'false'"
+
+                            >
+                                <p  v-for="message in response">{{ message }}</p>
+                            </v-alert>
+                            <v-alert
+                                    :value="true"
+                                    type="success"
+                                    v-else="responseStatus === 'true'"
 
                             >
                                 <p  v-for="message in response">{{ message }}</p>
@@ -86,6 +94,8 @@
             return {
 
                 pwVisible: false,
+
+                responseStatus: null,
 
                 form: {
                     name: '',
@@ -116,14 +126,16 @@
         methods: {
             async register() {
 
-                var responseStatus;
+                var savedResponse;
 
                 this.$axios.post('/register', this.form)
 
                 .then((resp) => {
                     console.log({resp})
                     console.log('Response: ',resp.status);
-                    responseStatus = true;
+                    savedResponse = true;
+                    this.responseStatus = savedResponse;
+
                     this.responseList = [
                         {
                             success: "Your request was a success!"
@@ -132,7 +144,8 @@
                 })
                     .catch((err) => {
                         console.log({err});
-                        responseStatus = false;
+                        savedResponse = false;
+                        this.responseStatus = savedResponse;
                         console.log('Response: ',err.response.status)
                         this.responseList = err.response.data.errors;
                     })
