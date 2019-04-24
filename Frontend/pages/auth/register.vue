@@ -38,7 +38,6 @@
                                               :append-icon="pwVisible ? 'visibility_off' : 'visibility'"
                                               @click:append="() => (pwVisible = !pwVisible)"
                                               :type="pwVisible ? 'text' : 'password'"
-                                              :counter="6"
                                 ></v-text-field>
 
 
@@ -67,8 +66,10 @@
                             <v-alert
                                     :value="true"
                                     type="error"
+                                    v-if="this.responseStatus"
+
                             >
-                                <p  v-for="message in response">{{ message }} </p>
+                                <p  v-for="message in response">{{ message }}</p>
                             </v-alert>
                         </v-slide-y-transition>
                     </v-card>
@@ -120,16 +121,21 @@
                 this.$axios.post('/register', this.form)
 
                 .then((resp) => {
+                    console.log({resp})
+                    console.log('Response: ',resp.status);
                     responseStatus = true;
-                    console.log(`[REG]Request Status: `, resp.response.status);
-
-                }).catch((err) =>    {
-                    responseStatus = false;
-
-                    this.responseList = err.response.data.errors;
-                    console.log(`[REG]Request Status: `, err.response.status);
-                    console.log(err.response.data.errors);
-                });
+                    this.responseList = [
+                        {
+                            success: "Your request was a success!"
+                        }
+                    ];
+                })
+                    .catch((err) => {
+                        console.log({err});
+                        responseStatus = false;
+                        console.log('Response: ',err.response.status)
+                        this.responseList = err.response.data.errors;
+                    })
             },
 
         },
