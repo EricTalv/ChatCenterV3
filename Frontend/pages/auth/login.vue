@@ -96,21 +96,35 @@
         methods: {
             async login() {
 
-                var redirect = this.$auth.redirect();
-                this.$auth.login({
-                    body: this.data.body, // Vue-resource
-                    data: this.form, // Axios
-                    rememberMe: this.data.rememberMe,
-                    redirect: {name: redirect ? redirect.from.name : 'account'},
-                    fetchUser: this.data.fetchUser
-                })
-                    .then(() => {
-                        console.log('success ' + this.context);
-                    }, (res) => {
-                        console.log('error ' + this.context);
-                        this.error = res.data;
-                    });
+              var savedResponse;
 
+              await this.$auth.login({ data: this.form })
+                  .then((resp) => {
+                      console.log({resp})
+                      console.log('Response: ', resp.status);
+                      savedResponse = true;
+                      this.responseStatus = savedResponse;
+
+                      this.responseList = [
+                          {
+                              message: "Your request was a success!\n\n You will be now be redirected!"
+                          }
+                      ];
+
+                      if (this.responseStatus) {
+                          setTimeout(() => {
+                              this.$router.push({ path: '/auth/login' })
+                          }, 3000);
+                      }
+                  })
+                  .catch((err) => {
+                      console.log({err});
+                      savedResponse = false;
+                      this.responseStatus = savedResponse;
+
+                      console.log('Response: ', err.response.status)
+                      this.responseList = err.response.data.errors;
+                  })
             },
 
         },
