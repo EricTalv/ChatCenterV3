@@ -56,7 +56,13 @@
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn v-on:click="register" dark>Register</v-btn>
+                            <v-btn
+                                    v-on:click="register"
+                                    dark
+                                    v-bind:class="{ 'loading' : isLoading }"
+                            >
+                                Register
+                            </v-btn>
                         </v-card-actions>
                         <v-slide-y-transition
                                 v-if="responseList"
@@ -93,6 +99,8 @@
         data() {
             return {
 
+                isLoading: true,
+
                 pwVisible: false,
 
                 responseStatus: null,
@@ -126,6 +134,8 @@
         methods: {
             async register() {
 
+                this.isLoading = !this.isLoading;
+
                 var savedResponse;
 
                 this.$axios.post('/register', this.form)
@@ -138,13 +148,13 @@
 
                         this.responseList = [
                             {
-                                message: "Your request was a success!\n You will be now be redirected!"
+                                message: "Your request was a success!\n\n You will be now be redirected!"
                             }
                         ];
 
                         if (this.responseStatus) {
-                            setTimeout(function(){
-                                this.$router.push('/auth/login');
+                            setTimeout(() => {
+                                this.$router.push({ path: '/auth/login' })
                             }, 3000);
                         }
                     })
