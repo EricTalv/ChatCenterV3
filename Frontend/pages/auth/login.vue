@@ -12,7 +12,7 @@
                             </v-toolbar-items>
                         </v-toolbar>
                         <v-card-text>
-                            <v-form @submit.prevent="login">
+                            <v-form @submit.prevent="login()">
                                 <v-text-field
                                         label="Login"
                                         v-model="form.name"
@@ -96,9 +96,20 @@
         methods: {
             async login() {
 
-
-                await this.$auth.login({ data: this.form });
-
+                var redirect = this.$auth.redirect();
+                this.$auth.login({
+                    body: this.data.body, // Vue-resource
+                    data: this.form, // Axios
+                    rememberMe: this.data.rememberMe,
+                    redirect: {name: redirect ? redirect.from.name : 'account'},
+                    fetchUser: this.data.fetchUser
+                })
+                    .then(() => {
+                        console.log('success ' + this.context);
+                    }, (res) => {
+                        console.log('error ' + this.context);
+                        this.error = res.data;
+                    });
 
             },
 
