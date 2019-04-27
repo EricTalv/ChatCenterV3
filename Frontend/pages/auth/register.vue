@@ -138,12 +138,14 @@
 
                         this.responseList = [
                             {
-                                message: "Your request was a success!"
+                                message: "Your request was a success!\n You will be now be redirected!"
                             }
                         ];
-                        if (this.responseStatus) {
-                            this.$router.push('/');
 
+                        if (this.responseStatus) {
+                            setTimeout(function(){
+                                this.$router.push('/auth/login');
+                            }, 3000);
                         }
                     })
                     .catch((err) => {
