@@ -12,7 +12,7 @@
                             </v-toolbar-items>
                         </v-toolbar>
                         <v-card-text>
-                            <v-form>
+                            <v-form @submit.prevent="login">
                                 <v-text-field
                                         label="Login"
                                         v-model="form.name"

@@ -173,7 +173,5 @@
 </script>
 
 <style >
-    .loading {
-        background: red !important;
-    }
+
 </style>
