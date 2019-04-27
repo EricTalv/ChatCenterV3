@@ -49,7 +49,6 @@
                                     :value="true"
                                     type="error"
                                     v-if="!responseStatus"
-
                             >
                                 <p v-for="message in response">{{ message }}</p>
                             </v-alert>
@@ -57,7 +56,6 @@
                                     :value="true"
                                     type="success"
                                     v-else="responseStatus"
-
                             >
                                 <p v-for="message in response">{{ message }}</p>
                             </v-alert>
@@ -98,37 +96,10 @@
         methods: {
             async login() {
 
-                var savedResponse;
 
-                this.$axios.post('/login', this.form)
-
-                    .then((resp) => {
-                        console.log({resp})
-                        console.log('Response: ', resp.status);
-                        savedResponse = true;
-                        this.responseStatus = savedResponse;
-
-                        this.responseList = [
-                            {
-                                message: "Your request was a success!"
-                            }
-                        ];
-
-                    })
-                    .catch((err) => {
-                        console.log({err});
-                        savedResponse = false;
-                        this.responseStatus = savedResponse;
-                        this.responseList = [
-                            {
-                                response: err.response.data.error
-                            }
-                        ];
+                await this.$auth.login({ data: this.form });
 
 
-                        console.log('Response: ', err.response.status)
-                        console.log(this.responseList)
-                    })
             },
 
         },
