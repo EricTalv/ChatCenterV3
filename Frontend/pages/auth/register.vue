@@ -132,9 +132,9 @@
         },
 
         methods: {
+
             async register() {
 
-                this.isLoading = !this.isLoading;
 
                 var savedResponse;
 
@@ -172,6 +172,8 @@
     }
 </script>
 
-<style scoped>
-
+<style >
+    .loading {
+        background: red !important;
+    }
 </style>
