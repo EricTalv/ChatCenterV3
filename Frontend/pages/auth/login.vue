@@ -96,11 +96,17 @@
         methods: {
             async login() {
 
+                try {
+                    this.$auth.loginWith('local', this.form )
+                        .then(() => {
+                            console.log('logged in')
+                        })
 
-              await this.$auth.loginWith('local', this.form )
-                  .then(() => {
-                      console.log('logged in')
-                  })
+                } catch (e) {
+                    console.log('NO')
+                }
+
+
             },
 
         },
