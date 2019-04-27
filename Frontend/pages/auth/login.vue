@@ -96,34 +96,10 @@
         methods: {
             async login() {
 
-              var savedResponse;
 
-              await this.$auth.login({ data: this.form })
-                  .then((resp) => {
-                      console.log({resp})
-                      console.log('Response: ', resp.status);
-                      savedResponse = true;
-                      this.responseStatus = savedResponse;
-
-                      this.responseList = [
-                          {
-                              message: "Your request was a success!\n\n You will be now be redirected!"
-                          }
-                      ];
-
-                      if (this.responseStatus) {
-                          setTimeout(() => {
-                              this.$router.push({ path: '/auth/login' })
-                          }, 3000);
-                      }
-                  })
-                  .catch((err) => {
-                      console.log({err});
-                      savedResponse = false;
-                      this.responseStatus = savedResponse;
-
-                      console.log('Response: ', err.response.status)
-                      this.responseList = err.response.data.errors;
+              await this.$auth.loginWith('local', this.form )
+                  .then(() => {
+                      console.log('logged in')
                   })
             },
 
