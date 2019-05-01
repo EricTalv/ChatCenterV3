@@ -148,7 +148,8 @@
 
                         this.responseList = [
                             {
-                                message: "Your request was a success!\n\n You will be now be redirected!"
+                                message: "Your request was a success!",
+                                message2: "You will be now redirected!"
                             }
                         ];
 
