@@ -116,7 +116,7 @@
         methods: {
             async logout() {
 
-                await this.$axios.logout()
+                await this.$auth.logout()
                     .then((resp) => {
                         console.log(resp)
                         console.log('good')
