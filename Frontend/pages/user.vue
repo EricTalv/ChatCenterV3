@@ -88,7 +88,7 @@
             drawer: null,
             user: {
                 name: 'John',
-                email: 'John@e.com',
+                email: 'John@ee.com',
                 updated: '12/05/19',
                 created: '11/02/12',
             },
