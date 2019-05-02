@@ -130,7 +130,7 @@
             }
         },
 
-        mounted() {
+        updated() {
             if ( window.localStorage.getItem('auth._token.local') ) {
                 console.log("You have a token")
                 this.token = true;
