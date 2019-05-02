@@ -29,13 +29,24 @@
             <v-toolbar-title>Application</v-toolbar-title>
         </v-toolbar>
         <v-content>
-            <v-container fluid fill-height>
+            <v-container fluid >
                 <v-layout
                         justify-center
                         align-center
                 >
-                    <v-flex text-xs-center>
+                    <v-flex>
+                        <v-data-table
+                            hide-actions
+                            hide-headers
+                            :items="users"
+                        >
+                            <td
+                                v-for="item in users"
+                            >
+                                {{ item }}
+                            </td>
 
+                        </v-data-table>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -51,9 +62,28 @@
         name: "user",
         data: () => ({
             drawer: null,
+            users: [
+                {
+                    name: 'John',
+                    email: 'john@e.com',
+                    updated: '23/10/11',
+                    created: '11/01/10',
+                },{
+                    name: 'John',
+                    email: 'john@e.com',
+                    updated: '23/10/11',
+                    created: '11/01/10',
+                },{
+                    name: 'John',
+                    email: 'john@e.com',
+                    updated: '23/10/11',
+                    created: '11/01/10',
+                },
+            ],
         }),
         props: {
             source: String
+
         }
     }
 </script>
