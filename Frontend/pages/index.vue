@@ -65,29 +65,31 @@
                     <v-btn
                             dark
                             fab
-                            small
-                            v-if="token"
-                    >
-                        <v-icon>logout</v-icon>
-                    </v-btn>
-                    <v-btn
-                            dark
-                            fab
-                            small
-                            v-if="token"
-
-                    >
-                        <v-icon>person</v-icon>
-                    </v-btn>
-                    <v-btn
-                            dark
-                            fab
                             href="auth/register"
                             small
                             v-if="!token"
                     >
                         <v-icon>assignment_ind</v-icon>
                     </v-btn>
+                    <v-btn
+                            dark
+                            fab
+                            small
+                            v-if="token"
+                            v-on:click=""
+                    >
+                        <v-icon>logout</v-icon>
+                    </v-btn>
+                    <v-btn
+                            dark
+                            fab
+                            href="user"
+                            small
+                            v-if="token"
+                    >
+                        <v-icon>person</v-icon>
+                    </v-btn>
+
                 </v-speed-dial>
             </v-flex>
         </v-layout>
@@ -107,27 +109,29 @@
         data() {
             return {
                 model: 'posts',
-                token: false
+                token: null
             }
         },
 
-        beforeCreate() {
+        async logout() {
 
+            await this.$axios.logout()
+                .then((resp) => {
+                })
+                .catch((err) => {
+                });
 
-            if (window.localStorage.getItem('auth._token.local')) {
+        },
+
+        mounted() {
+            if ( window.localStorage.getItem('auth._token.local') ) {
                 console.log("You have a token")
                 this.token = true;
-                console.log(this.token);
             } else {
                 console.log("You dont have a token")
                 this.token = false;
-                console.log(this.token);
-
             }
-
-
-        },
-
+        }
 
     }
 </script>
