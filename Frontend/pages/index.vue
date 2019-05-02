@@ -4,10 +4,10 @@
         <v-layout justify-center>
             <v-flex xl10>
                 <v-tabs
-                        class="et-Tab"
-                        slider-color="black"
                         centered
+                        class="et-Tab"
                         grow
+                        slider-color="black"
                         v-model="model">
                     <v-tab :href="`#posts`">Posts</v-tab>
                     <v-tab :href="`#chats`">Chats</v-tab>
@@ -15,17 +15,17 @@
 
                 <v-tabs-items v-model="model">
                     <v-tab-item
-                            lazy
                             :key="1"
                             :value="`posts`"
+                            lazy
                     >
                         <div class="display-1 text-center ma-5">Posts</div>
                         <post_list></post_list>
                     </v-tab-item>
                     <v-tab-item
-                            lazy
                             :key="2"
                             :value="`chats`"
+                            lazy
                     >
                         <div class="display-1 text-center ma-5">Chats</div>
                         <fieldset>
@@ -34,37 +34,20 @@
                         </fieldset>
                     </v-tab-item>
                 </v-tabs-items>
-                <!--
-                                <v-btn
-                                        small
-                                        top
-                                        right
-                                        fab
-                                        fixed
-                                        outline
-                                        href="auth/login"
-                                >
-                                    <v-icon>input</v-icon>
-
-                                    <v-speed-dial>
-
-                                    </v-speed-dial>
-                                </v-btn>-->
-
                 <v-speed-dial
                         class="et-Levitate"
-                        top
-                        right
-                        fixed
                         direction="bottom"
+                        fixed
                         open-on-hover
+                        right
+                        top
                         transition="slide-y-reverse-transition"
                 >
                     <v-btn
-                            outline
-                            slot="activator"
                             fab
                             hover
+                            outline
+                            slot="activator"
                     >
                         <v-icon>account_circle</v-icon>
                     </v-btn>
@@ -72,9 +55,9 @@
                     <v-btn
                             dark
                             fab
+                            href="auth/login"
                             small
                             v-if="!token"
-                            href="auth/login"
 
                     >
                         <v-icon>chevron_right</v-icon>
@@ -99,15 +82,13 @@
                     <v-btn
                             dark
                             fab
+                            href="auth/register"
                             small
                             v-if="!token"
-                            href="auth/register"
                     >
                         <v-icon>assignment_ind</v-icon>
                     </v-btn>
                 </v-speed-dial>
-
-
             </v-flex>
         </v-layout>
     </v-container>
@@ -131,7 +112,20 @@
         },
 
         beforeCreate() {
-            console.log({ t: window.localStorage });
+
+
+            if (window.localStorage.getItem('auth._token.local')) {
+                console.log("You have a token")
+                this.token = true;
+                console.log(this.token);
+            } else {
+                console.log("You dont have a token")
+                this.token = false;
+                console.log(this.token);
+
+            }
+
+
         },
 
 
