@@ -18,30 +18,28 @@
                :content="content"
                @close="showModal = !showModal"
         >
-            <modal_interface></modal_interface>
-            <!--<div class="modal-header">
+
+
+            <div class="modal-header">
                 <slot name="header">
-                    <h1>{{ content.title }}</h1>
+
+                    <input
+                            value="content.title"
+                            class="input"
+                            type="text"
+                            placeholder="title">
                 </slot>
             </div>
 
             <div class="modal-body">
                 <slot name="body">
-                    <div>{{ content.body }}</div>
+                    <textarea
+                            class="textarea is-primary"
+                            placeholder="Content"
+                            v-model="content"
+                    ></textarea>
                 </slot>
             </div>
-
-            <div class="modal-footer">
-                <slot name="footer">
-                    <button class="modal-default-button" @click="showModal=!showModal">
-                        Cancel
-                    </button>
-                    <button class="modal-default-button" @click="showModal=!showModal">
-                        Save
-                    </button>
-                </slot>
-            </div>-->
-
 
             <div class="modal-footer">
                 <slot name="footer">
@@ -61,18 +59,20 @@
 <script>
 
     import modal from "../components/modal";
-    import modal_interface from "./ModalInterface";
 
     export default {
         name: "admin_post",
         props: ['content'],
-        components: {modal, modal_interface},
+        components: {modal},
 
         data() {
             return {
+                value: '{{ content.title }}',
                 showModal: false
             }
-        }
+        },
+
+
     }
 </script>
 
