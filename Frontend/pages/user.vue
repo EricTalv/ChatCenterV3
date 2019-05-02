@@ -42,7 +42,7 @@
                                         Name
                                     </v-list-tile-title>
                                     <v-list-tile-sub-title>
-                                        {{ user.name }}
+                                        {{ userData.name }}
                                     </v-list-tile-sub-title>
                                 </v-list-tile>
                                 <v-list-tile>
@@ -50,25 +50,34 @@
                                         Email
                                     </v-list-tile-title>
                                     <v-list-tile-sub-title>
-                                        {{ user.email }}
+                                        {{ userData.email }}
                                     </v-list-tile-sub-title>
                                 </v-list-tile>
                                 <v-list-tile>
                                     <v-list-tile-title>
-                                        Updated
+                                        Id
                                     </v-list-tile-title>
                                     <v-list-tile-sub-title>
-                                        {{ user.updated }}
+                                        {{ userData.id }}
                                     </v-list-tile-sub-title>
                                 </v-list-tile>
                                 <v-list-tile>
                                     <v-list-tile-title>
-                                        Created
+                                        Created At
                                     </v-list-tile-title>
                                     <v-list-tile-sub-title>
-                                        {{ user.created }}
+                                        {{ userData.created_at }}
                                     </v-list-tile-sub-title>
                                 </v-list-tile>
+                                <v-list-tile>
+                                    <v-list-tile-title>
+                                        Updated At
+                                    </v-list-tile-title>
+                                    <v-list-tile-sub-title>
+                                        {{ userData.updated_at }}
+                                    </v-list-tile-sub-title>
+                                </v-list-tile>
+
                             </v-list>
                         </v-card>
                     </v-flex>
@@ -86,15 +95,23 @@
         name: "user",
         data: () => ({
             drawer: null,
-            user: {
-                name: 'John',
-                email: 'John@ee.com',
-                updated: '12/05/19',
-                created: '11/02/12',
-            },
+            userData: [],
         }),
         props: {
             source: String
+        },
+
+        created() {
+            this.$axios.get('/user')
+                .then((resp) => {
+                    console.log(resp.data.data)
+                    this.userData = resp.data.data;
+                    console.log(this.userData.email)
+                })
+                .catch((err) => {
+                    console.log({err})
+
+                })
         }
     }
 </script>
