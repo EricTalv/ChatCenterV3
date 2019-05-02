@@ -74,6 +74,8 @@
                             fab
                             small
                             v-if="!token"
+                            href="auth/login"
+
                     >
                         <v-icon>chevron_right</v-icon>
                     </v-btn>
@@ -99,7 +101,7 @@
                             fab
                             small
                             v-if="!token"
-                            href="/auth/register"
+                            href="auth/register"
                     >
                         <v-icon>assignment_ind</v-icon>
                     </v-btn>
@@ -124,19 +126,14 @@
         data() {
             return {
                 model: 'posts',
-                token: true
+                token: false
             }
         },
 
         beforeCreate() {
-            // console.log({ t: this.token });
+            console.log({ t: window.localStorage });
         },
 
-        methods: {
-            tologin() {
-                alert('hello')
-            }
-        }
 
     }
 </script>
