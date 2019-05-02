@@ -52,40 +52,52 @@
                                 </v-btn>-->
 
                 <v-speed-dial
+                        class="et-Levitate"
+                        top
+                        right
+                        fixed
+                        direction="bottom"
+                        open-on-hover
                         v-model="fab"
-                        :top="top"
-                        :bottom="bottom"
-                        :right="right"
-                        :left="left"
-                        :direction="direction"
-                        :open-on-hover="hover"
-                        :transition="transition"
-                        :fixed="fixed"
+                        transition="slide-y-reverse-transition"
                 >
                     <v-btn
+                            v-model="fab"
+                            outline
                             slot="activator"
-                            color="blue darken-2"
-                            dark
                             fab
                             hover
-                            v-model="fab"
                     >
                         <v-icon>account_circle</v-icon>
-                        <v-icon>close</v-icon>
+                    </v-btn>
+
+                    <v-btn
+                            dark
+                            fab
+                            small
+                    >
+                        <v-icon>chevron_right</v-icon>
                     </v-btn>
                     <v-btn
                             dark
                             fab
                             small
                     >
-                        <v-icon>edit</v-icon>
+                        <v-icon>logout</v-icon>
                     </v-btn>
                     <v-btn
                             dark
                             fab
                             small
                     >
-                        <v-icon>add</v-icon>
+                        <v-icon>person</v-icon>
+                    </v-btn>
+                    <v-btn
+                            dark
+                            fab
+                            small
+                    >
+                        <v-icon>assignment_ind</v-icon>
                     </v-btn>
                 </v-speed-dial>
 
@@ -105,20 +117,6 @@
         name: "index",
         components: {post_list},
 
-        data: () => ({
-            direction: 'bottom',
-            fab: true,
-            fling: false,
-            hover: false,
-            tabs: null,
-            top: true,
-            right: true,
-            bottom: false,
-            left: false,
-            fixed: true,
-            transition: 'slide-y-reverse-transition'
-        }),
-
         data() {
 
             return {
@@ -137,6 +135,10 @@
     a:hover {
         text-decoration: none;
         color: #0E9FDE;
+    }
+
+    .et-Levitate {
+        z-index: 9000;
     }
 
 </style>
