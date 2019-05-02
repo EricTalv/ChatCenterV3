@@ -76,7 +76,7 @@
                             fab
                             small
                             v-if="token"
-                            v-on:click=""
+                            v-on:click="logout"
                     >
                         <v-icon>logout</v-icon>
                     </v-btn>
@@ -113,14 +113,21 @@
             }
         },
 
-        async logout() {
+        methods: {
+            async logout() {
 
-            await this.$axios.logout()
-                .then((resp) => {
-                })
-                .catch((err) => {
-                });
+                await this.$axios.logout()
+                    .then((resp) => {
+                        console.log(resp)
+                        console.log('good')
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                        console.log('bad')
 
+                    });
+
+            }
         },
 
         mounted() {
