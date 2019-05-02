@@ -1,9 +1,6 @@
 <template>
     <div>
-        <medium-editor
-                :content='content'
-                :options='options'>
-        </medium-editor>
+
     </div>
 </template>
 
@@ -15,10 +12,7 @@
 
         data() {
             return {
-                content: "",
-                options: {
 
-                }
             }
         }
     }

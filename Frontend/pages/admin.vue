@@ -27,14 +27,14 @@
         components: {admin_post, inf_scroll},
 
         created() {
-            this.$store.dispatch('retrieveData')
+            this.$store.dispatch('posts/retrieveData')
         },
 
         computed: {
 
             Contents() {
                 // Return any new data from the Content State
-                return this.$store.state.contents;
+                return this.$store.state.posts.contents;
             },
 
             ModalData () {
