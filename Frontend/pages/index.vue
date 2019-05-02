@@ -58,11 +58,9 @@
                         fixed
                         direction="bottom"
                         open-on-hover
-                        v-model="fab"
                         transition="slide-y-reverse-transition"
                 >
                     <v-btn
-                            v-model="fab"
                             outline
                             slot="activator"
                             fab
@@ -75,6 +73,7 @@
                             dark
                             fab
                             small
+                            v-if="!token"
                     >
                         <v-icon>chevron_right</v-icon>
                     </v-btn>
@@ -82,6 +81,7 @@
                             dark
                             fab
                             small
+                            v-if="token"
                     >
                         <v-icon>logout</v-icon>
                     </v-btn>
@@ -89,6 +89,8 @@
                             dark
                             fab
                             small
+                            v-if="token"
+
                     >
                         <v-icon>person</v-icon>
                     </v-btn>
@@ -96,6 +98,8 @@
                             dark
                             fab
                             small
+                            v-if="!token"
+                            href="/auth/register"
                     >
                         <v-icon>assignment_ind</v-icon>
                     </v-btn>
@@ -118,11 +122,22 @@
         components: {post_list},
 
         data() {
-
             return {
-                model: 'posts'
+                model: 'posts',
+                token: true
             }
         },
+
+        beforeCreate() {
+            // console.log({ t: this.token });
+        },
+
+        methods: {
+            tologin() {
+                alert('hello')
+            }
+        }
+
     }
 </script>
 
