@@ -118,19 +118,17 @@
 
                 await this.$auth.logout()
                     .then((resp) => {
-                        console.log(resp)
+                        this.token = false;
                         console.log('good')
                     })
                     .catch((err) => {
-                        console.log(err)
                         console.log('bad')
-
                     });
 
             }
         },
 
-        updated() {
+        mounted() {
             if ( window.localStorage.getItem('auth._token.local') ) {
                 console.log("You have a token")
                 this.token = true;
