@@ -34,7 +34,7 @@
                         </fieldset>
                     </v-tab-item>
                 </v-tabs-items>
-
+<!--
                 <v-btn
                         small
                         top
@@ -45,7 +45,14 @@
                         href="auth/login"
                 >
                     <v-icon>input</v-icon>
-                </v-btn>
+
+                    <v-speed-dial>
+
+                    </v-speed-dial>
+                </v-btn>-->
+
+
+
 
             </v-flex>
         </v-layout>
@@ -63,6 +70,7 @@
         components: {post_list},
 
         data() {
+
             return {
                 model: 'posts'
             }

@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <v-app>
         <v-navigation-drawer
                 v-model="drawer"
@@ -10,7 +10,7 @@
                     <v-list-tile-action>
                         <v-icon>home</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-content >
+                    <v-list-tile-content>
                         <v-list-tile-title>Home</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
@@ -18,7 +18,7 @@
                     <v-list-tile-action>
                         <v-icon>logout</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-content >
+                    <v-list-tile-content>
                         <v-list-tile-title>Logout</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
@@ -29,24 +29,48 @@
             <v-toolbar-title>Application</v-toolbar-title>
         </v-toolbar>
         <v-content>
-            <v-container fluid >
+            <v-container fluid>
                 <v-layout
                         justify-center
                         align-center
                 >
-                    <v-flex>
-                        <v-data-table
-                            hide-actions
-                            hide-headers
-                            :items="users"
-                        >
-                            <td
-                                v-for="item in users"
-                            >
-                                {{ item }}
-                            </td>
-
-                        </v-data-table>
+                    <v-flex max-width="20px">
+                        <v-card>
+                            <v-list dense>
+                                <v-list-tile>
+                                    <v-list-tile-title>
+                                        Name
+                                    </v-list-tile-title>
+                                    <v-list-tile-sub-title>
+                                        {{ user.name }}
+                                    </v-list-tile-sub-title>
+                                </v-list-tile>
+                                <v-list-tile>
+                                    <v-list-tile-title>
+                                        Email
+                                    </v-list-tile-title>
+                                    <v-list-tile-sub-title>
+                                        {{ user.email }}
+                                    </v-list-tile-sub-title>
+                                </v-list-tile>
+                                <v-list-tile>
+                                    <v-list-tile-title>
+                                        Updated
+                                    </v-list-tile-title>
+                                    <v-list-tile-sub-title>
+                                        {{ user.updated }}
+                                    </v-list-tile-sub-title>
+                                </v-list-tile>
+                                <v-list-tile>
+                                    <v-list-tile-title>
+                                        Created
+                                    </v-list-tile-title>
+                                    <v-list-tile-sub-title>
+                                        {{ user.created }}
+                                    </v-list-tile-sub-title>
+                                </v-list-tile>
+                            </v-list>
+                        </v-card>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -62,24 +86,13 @@
         name: "user",
         data: () => ({
             drawer: null,
-            users: [
-                {
-                    name: 'John',
-                    email: 'john@e.com',
-                    updated: '23/10/11',
-                    created: '11/01/10',
-                },{
-                    name: 'John',
-                    email: 'john@e.com',
-                    updated: '23/10/11',
-                    created: '11/01/10',
-                },{
-                    name: 'John',
-                    email: 'john@e.com',
-                    updated: '23/10/11',
-                    created: '11/01/10',
-                },
-            ],
+            user: {
+                name: 'John',
+                email: 'John@e.com',
+                updated: '12/05/19',
+                created: '11/02/12',
+            },
+
         }),
         props: {
             source: String
