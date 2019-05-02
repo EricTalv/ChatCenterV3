@@ -84,7 +84,8 @@ module.exports = {
                     }
                 }
             }
-        }
+        },
+        redirect: false,
     },
 
     /*

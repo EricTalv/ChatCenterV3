@@ -49,6 +49,7 @@
                                     :value="true"
                                     type="error"
                                     v-if="!responseStatus"
+
                             >
                                 <p v-for="message in response">{{ message }}</p>
                             </v-alert>
@@ -56,6 +57,7 @@
                                     :value="true"
                                     type="success"
                                     v-else="responseStatus"
+
                             >
                                 <p v-for="message in response">{{ message }}</p>
                             </v-alert>
@@ -78,6 +80,8 @@
 
                 responseList: null,
 
+                responseStatus: null,
+
                 form: {
                     name: '',
                     password: ''
@@ -96,19 +100,41 @@
         methods: {
             async login() {
 
-                try {
-                    this.$auth.loginWith('local', this.form )
-                        .then(() => {
-                            console.log('logged in')
-                        })
+                await this.$auth.login({ data: this.form })
+                    .then(() => {
 
-                } catch (e) {
-                    console.log('NO')
-                }
+                        this.responseStatus = true;
+
+                        this.responseList = [
+                            {
+                                message: "You have successfully logged in",
+                                message2: "You will now be redirected"
+                            }
+                        ];
+
+                        if (this.responseList) {
+                            setTimeout(() => {
+                                this.$router.push({ path: '/user' })
+                            }, 3000)
+                        }
+
+                    })
+                    .catch((err) => {
+                        console.log({err});
+
+                        console.log('Response: ', err.response.status)
+
+                        console.log(err.response.data.error);
+
+                        this.responseStatus = false;
+
+                        this.responseList = [
+                            { error: err.response.data.error }
+                        ];
 
 
+                    })
             },
-
         },
     }
 </script>
