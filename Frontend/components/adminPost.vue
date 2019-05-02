@@ -8,8 +8,8 @@
                 <p class="et-Text">{{ content.body }}</p>
 
                 <div class="et-Controls">
-                    <button class="et-Button" v-on:click="showModal = !showModal">Edit</button>
-                    <button class="et-Button">Delete</button>
+                    <v-btn small class="et-Button" v-on:click="showModal = !showModal">Edit</v-btn>
+                    <v-btn small class="et-Button">Delete</v-btn>
                 </div>
             </fieldset>
         </div>
@@ -45,12 +45,12 @@
 
             <div class="modal-footer">
                 <slot name="footer">
-                    <button class="modal-default-button" @click="showModal=!showModal">
+                    <v-btn small class="modal-default-button" @click="showModal=!showModal">
                         Cancel
-                    </button>
-                    <button class="modal-default-button" @click="showModal=!showModal">
+                    </v-btn>
+                    <v-btn small class="modal-default-button" @click="showModal=!showModal">
                         Save
-                    </button>
+                    </v-btn>
                 </slot>
             </div>
 
@@ -77,7 +77,4 @@
 </script>
 
 <style>
- .medium-editor-toolbar {
-     z-index: 9999 !important;
- }
 </style>
