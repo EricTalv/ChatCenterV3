@@ -20,15 +20,15 @@
 
         <modal v-if="showModal"
                @close="showModal = !showModal"
-               :content="content"
         >
 
             <div class="modal-header">
                 <slot name="header">
                     <input
+                            style="outline: 1px solid black; width: 100%; padding: 10px;"
+
                             type="text"
                             v-model="title"
-                            placeholder="title"
                     >
                 </slot>
             </div>
@@ -36,18 +36,18 @@
             <div class="modal-body">
                 <slot name="body">
                     <textarea
+                            style="outline: 1px solid black; width: 100%; padding: 10px;"
                             v-model="content"
-                            placeholder="Content"
                     ></textarea>
                 </slot>
             </div>
 
             <div class="modal-footer">
                 <slot name="footer">
-                    <v-btn small class="modal-default-button" @click="showModal=!showModal">
+                    <v-btn small class="modal-default-button" @click="showModal = !showModal">
                         Cancel
                     </v-btn>
-                    <v-btn small class="modal-default-button" @click="showModal=!showModal">
+                    <v-btn small class="modal-default-button" @click="">
                         Save
                     </v-btn>
                 </slot>
@@ -62,12 +62,13 @@
 
     export default {
         name: "admin_post",
-        props: ['content'],
         components: {modal},
 
         data() {
             return {
-                showModal: false
+                showModal: this.$store.state.postEditor.modal.visible,
+                title: '',
+                content: '',
             }
         },
 
@@ -79,7 +80,11 @@
 
             Contents() {
                 // Return any new data from the Content State
+                console.log(this.showModal);
+
                 return this.$store.state.posts.contents;
+
+
             },
         }
     }
