@@ -5,7 +5,6 @@ export const state = () => ({
     currentPage: {},
     isLoading: true,
     retrieving: false,
-    currentlyOpenedPost: {},
 });
 
 
@@ -36,10 +35,6 @@ export const mutations = {
     SET_STATUS(state, value) {
         state.retrieving = value;
     },
-    // Send Modal data
-    SEND_MODAL_DATA(state, value) {
-        state.currentlyOpenedPost = value;
-    }
 
 };
 
@@ -75,10 +70,6 @@ export const actions = {
         }
     },
 
-    // Show Current POST Modal Data
-    modalData(context) {
-        context.commit('SEND_MODAL_DATA')
-    }
 };
 
 export const getters = {};
