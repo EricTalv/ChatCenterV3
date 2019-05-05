@@ -3,6 +3,7 @@
         <div class="col-md-12">
             <fieldset class="et-adminField"
                       v-for="item in Contents"
+                      :content="item"
                       :key="item.id"
             >
                 <legend class="et-Legend">
@@ -22,13 +23,11 @@
                :content="content"
         >
 
-
             <div class="modal-header">
                 <slot name="header">
                     <input
-                            class="input"
-                            v-model="title"
                             type="text"
+                            v-model="title"
                             placeholder="title"
                     >
                 </slot>
@@ -37,8 +36,8 @@
             <div class="modal-body">
                 <slot name="body">
                     <textarea
-                            placeholder="Content"
                             v-model="content"
+                            placeholder="Content"
                     ></textarea>
                 </slot>
             </div>
@@ -53,7 +52,6 @@
                     </v-btn>
                 </slot>
             </div>
-
         </modal>
     </div>
 </template>
@@ -64,6 +62,7 @@
 
     export default {
         name: "admin_post",
+        props: ['content'],
         components: {modal},
 
         data() {
@@ -82,13 +81,7 @@
                 // Return any new data from the Content State
                 return this.$store.state.posts.contents;
             },
-
-            ModalData () {
-                // Send Currently opened Post data to CurrentlyOpenPost state
-
-            }
         }
-
     }
 </script>
 
