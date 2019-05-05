@@ -1,10 +1,10 @@
 <template>
     <div class="row">
         <div class="col-md-12">
-            <fieldset class="et-adminField"
-                      v-for="item in Contents"
-                      :content="item"
+            <fieldset :content="item"
                       :key="item.id"
+                      class="et-adminField"
+                      v-for="item in Contents"
             >
                 <legend class="et-Legend">
                     <h1>{{ item.id}}| {{ item.title }}</h1>
@@ -12,14 +12,14 @@
                 <p class="et-Text">{{ item.body }}</p>
 
                 <div class="et-Controls">
-                    <v-btn small class="et-Button" v-on:click="showModal = !showModal">Edit</v-btn>
-                    <v-btn small class="et-Button">Delete</v-btn>
+                    <v-btn class="et-Button" small v-on:click="showModal = !showModal">Edit</v-btn>
+                    <v-btn class="et-Button" small>Delete</v-btn>
                 </div>
             </fieldset>
         </div>
 
-        <modal v-if="showModal"
-               @close="showModal = !showModal"
+        <modal @close="showModal = !showModal"
+               v-if="showModal"
         >
 
             <div class="modal-header">
@@ -44,10 +44,10 @@
 
             <div class="modal-footer">
                 <slot name="footer">
-                    <v-btn small class="modal-default-button" @click="showModal = !showModal">
+                    <v-btn @click="showModal = !showModal" class="modal-default-button" small>
                         Cancel
                     </v-btn>
-                    <v-btn small class="modal-default-button" @click="">
+                    <v-btn @click="" class="modal-default-button" small>
                         Save
                     </v-btn>
                 </slot>
@@ -69,22 +69,23 @@
                 showModal: this.$store.state.postEditor.modal.visible,
                 title: '',
                 content: '',
+                data: null
             }
         },
 
         created() {
-            this.$store.dispatch('posts/retrieveData')
+            this.$store.dispatch('posts/retrieveData');
+
         },
+
+
 
         computed: {
 
+
             Contents() {
-                // Return any new data from the Content State
-                console.log(this.showModal);
 
                 return this.$store.state.posts.contents;
-
-
             },
         }
     }

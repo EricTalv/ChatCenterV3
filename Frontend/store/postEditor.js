@@ -22,9 +22,9 @@ export const mutations = {
 
 
     // Sets opend modal's data
-    ASSIGN_MODAL_DATA(state, title, content) {
-        state.modal.data.title = title;
-        state.modal.data.content = content;
+    ASSIGN_MODAL_DATA(state, data) {
+        state.modal.data.title = data.title;
+        state.modal.data.content = data.content;
     }
 
 };
@@ -41,8 +41,11 @@ export const actions = {
     },
 
     // Set what data needs to be shown in the Modal
-    setModalData(context) {
-        context.commit('ASSIGN_MODAL_DATA', 'This is title', 'This is content')
+    setModalData(context, data) {
+        context.commit('ASSIGN_MODAL_DATA', {
+            title: data.title,
+            content: data.content,
+        })
     }
 
 
