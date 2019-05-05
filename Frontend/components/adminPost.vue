@@ -22,19 +22,18 @@
 
             <div class="modal-header">
                 <slot name="header">
-
                     <input
-                            value="content.title"
                             class="input"
+                            v-model="title"
                             type="text"
-                            placeholder="title">
+                            placeholder="title"
+                    >
                 </slot>
             </div>
 
             <div class="modal-body">
                 <slot name="body">
                     <textarea
-                            class="textarea is-primary"
                             placeholder="Content"
                             v-model="content"
                     ></textarea>
@@ -67,11 +66,33 @@
 
         data() {
             return {
-                value: '{{ content.title }}',
-                showModal: false
             }
         },
 
+        computed: {
+            title: {
+                // getter
+                get() {
+                    return this.$store.state.postEditor.modal.edit.data.title;
+                },
+                // setter
+                set(newValue) {
+                    this.$store.dispatch('postEditor/setFormData',
+                        {key:'title', value: newValue, modal:'edit'})
+                }
+            },
+            content: {
+                // getter
+                get() {
+                    return this.$store.state.postEditor.modal.edit.data.content;
+                },
+                // setter
+                set(newValue) {
+                    this.$store.dispatch('postEditor/setFormData',
+                        {key:'content', value: newValue, modal:'edit'})
+                }
+            }
+        }
 
     }
 </script>
