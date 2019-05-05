@@ -1,11 +1,14 @@
 <template>
     <div class="row">
         <div class="col-md-12">
-            <fieldset class="et-adminField">
+            <fieldset class="et-adminField"
+                      v-for="item in Contents"
+                      :key="item.id"
+            >
                 <legend class="et-Legend">
-                    <h1>{{ content.id}}| {{ content.title }}</h1>
+                    <h1>{{ item.id}}| {{ item.title }}</h1>
                 </legend>
-                <p class="et-Text">{{ content.body }}</p>
+                <p class="et-Text">{{ item.body }}</p>
 
                 <div class="et-Controls">
                     <v-btn small class="et-Button" v-on:click="showModal = !showModal">Edit</v-btn>
@@ -15,8 +18,8 @@
         </div>
 
         <modal v-if="showModal"
-               :content="content"
                @close="showModal = !showModal"
+               :content="content"
         >
 
 
@@ -61,36 +64,28 @@
 
     export default {
         name: "admin_post",
-        props: ['content'],
         components: {modal},
 
         data() {
             return {
+                showModal: false
             }
         },
 
+        created() {
+            this.$store.dispatch('posts/retrieveData')
+        },
+
         computed: {
-            title: {
-                // getter
-                get() {
-                    return this.$store.state.postEditor.modal.edit.data.title;
-                },
-                // setter
-                set(newValue) {
-                    this.$store.dispatch('postEditor/setFormData',
-                        {key:'title', value: newValue, modal:'edit'})
-                }
+
+            Contents() {
+                // Return any new data from the Content State
+                return this.$store.state.posts.contents;
             },
-            content: {
-                // getter
-                get() {
-                    return this.$store.state.postEditor.modal.edit.data.content;
-                },
-                // setter
-                set(newValue) {
-                    this.$store.dispatch('postEditor/setFormData',
-                        {key:'content', value: newValue, modal:'edit'})
-                }
+
+            ModalData () {
+                // Send Currently opened Post data to CurrentlyOpenPost state
+
             }
         }
 
