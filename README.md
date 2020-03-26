@@ -4,6 +4,10 @@ This is my ambitious project on creating a socializing platform with a bit of a 
 
 ChatCenter revolves around chatting to random strangers online, there are similar applications already but my app would utilize modern technologies, rich of features and would be scalable.
 
+This project history is also spread between this repo and these two other repos:
+https://github.com/EricTalv/AdminPanel
+https://github.com/EricTalv/chatcenter
+
 ## Technologies
 My project was basically was cut into two server sides.
 I would use **nuxt.js** as my front-end framework and have it generate a static website.
