@@ -19,7 +19,7 @@
     "bootstrap-vue": "^2.0.0-rc.11",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "laravel-echo": "^1.5.3",
     "nuxt": "^2.6.2",
     "service-container": "0.0.11",
