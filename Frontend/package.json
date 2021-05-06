@@ -23,7 +23,7 @@
     "laravel-echo": "^1.5.3",
     "nuxt": "^2.6.2",
     "service-container": "0.0.11",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "vuetify": "^1.5.7",
     "vuex": "^3.1.0"
   },
